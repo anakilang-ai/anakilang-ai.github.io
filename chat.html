@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Anak Ilang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 90vh;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .room-history {
+            width: 25%;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            background-color: #ecf0f1;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .room-history h3 {
+            text-align: center;
+            padding: 10px;
+            background-color: #2980b9;
+            color: white;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .room-history ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .room-history li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .room-history li:hover {
+            background-color: #d1ecf1;
+        }
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background-color: #2980b9;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .chat-header .mode-toggle {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .message.user {
+            background-color: #d1ecf1;
+            text-align: right;
+        }
+        .message.bot {
+            background-color: #f1f1f1;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .chat-input button {
+            padding: 10px;
+            border: 1px solid #2980b9;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #21618c;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #555;
+        }
+        .dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        .dark-mode .container {
+            background-color: #34495e;
+            color: #ecf0f1;
+        }
+        .dark-mode .room-history {
+            background-color: #2c3e50;
+        }
+        .dark-mode .room-history li {
+            border-bottom: 1px solid #555;
+        }
+        .dark-mode .chat-header {
+            background-color: #1abc9c;
+        }
+        .dark-mode .chat-messages {
+            background-color: #34495e;
+        }
+        .dark-mode .chat-input {
+            background-color: #2c3e50;
+        }
+        .dark-mode .message.user {
+            background-color: #2980b9;
+        }
+        .dark-mode .message.bot {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="room-history">
+            <h3>Riwayat Pencarian</h3>
+            <ul id="room-list">
+                <!-- Room history items will appear here -->
+            </ul>
+        </div>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>Selamat Datang di Chatbot Anak Ilang</h2>
+                <span class="mode-toggle" id="mode-toggle">🌞</span>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ketik pesan di sini...">
+                <button id="send-button">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        let darkMode = false;
+
+        modeToggle.addEventListener('click', () => {
+            darkMode = !darkMode;
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                modeToggle.innerText = '🌜';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeToggle.innerText = '🌞';
+            }
+        });
+
+        document.getElementById('send-button').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                addMessage(userInput, 'user');
+                addRoomHistory(userInput);
+                document.getElementById('user-input').value = '';
+                // Simulate bot response
+                setTimeout(function() {
+                    addMessage('Terima kasih atas pesan Anda. Kami akan segera merespons.', 'bot');
+                }, 1000);
+            }
+        });
+
+        function addMessage(text, sender) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message', sender);
+            messageContainer.innerText = text;
+            document.getElementById('chat-messages').appendChild(messageContainer);
+            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        }
+
+        function addRoomHistory(text) {
+            const roomItem = document.createElement('li');
+            roomItem.innerHTML = `<span>${text}</span> <span class="timestamp">${getCurrentTime()}</span>`;
+            roomItem.addEventListener('click', function() {
+                addMessage(`Anda mengklik pencarian: ${text}`, 'bot');
+            });
+            document.getElementById('room-list').appendChild(roomItem);
+        }
+
+        function getCurrentTime() {
+            const now = new Date();
+            return `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`;
+        }
+    </script>
+</body>
+</html>
