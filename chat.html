@@ -58,6 +58,24 @@
         .room-history h3 .new-chat:hover {
             color: #f8deb4;
         }
+        .room-history h3 .new-chat::after {
+            content: "New Chat";
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #555;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            transition: opacity 0.3s;
+        }
+        .room-history h3 .new-chat:hover::after {
+            opacity: 1;
+        }
         .room-history ul {
             list-style-type: none;
             padding: 0;
