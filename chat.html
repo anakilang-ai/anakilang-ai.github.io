@@ -44,6 +44,17 @@
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
         }
+        .room-history .new-chat {
+            text-align: center;
+            padding: 10px;
+            background-color: #27ae60;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .room-history .new-chat:hover {
+            background-color: #2ecc71;
+        }
         .room-history ul {
             list-style-type: none;
             padding: 0;
@@ -170,6 +181,7 @@
     <div class="container">
         <div class="room-history">
             <h3>Riwayat Pencarian</h3>
+            <div class="new-chat" id="new-chat">New Chat</div>
             <ul id="room-list">
                 <!-- Room history items will appear here -->
             </ul>
@@ -204,7 +216,16 @@
             }
         });
 
-        document.getElementById('send-button').addEventListener('click', function() {
+        document.getElementById('send-button').addEventListener('click', sendMessage);
+        document.getElementById('user-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        document.getElementById('new-chat').addEventListener('click', startNewChat);
+
+        function sendMessage() {
             const userInput = document.getElementById('user-input').value;
             if (userInput.trim() !== '') {
                 addMessage(userInput, 'user');
@@ -215,7 +236,7 @@
                     addMessage('Terima kasih atas pesan Anda. Kami akan segera merespons.', 'bot');
                 }, 1000);
             }
-        });
+        }
 
         function addMessage(text, sender) {
             const messageContainer = document.createElement('div');
@@ -232,6 +253,11 @@
                 addMessage(`Anda mengklik pencarian: ${text}`, 'bot');
             });
             document.getElementById('room-list').appendChild(roomItem);
+        }
+
+        function startNewChat() {
+            document.getElementById('chat-messages').innerHTML = '';
+            addMessage('Percakapan baru dimulai. Silakan kirim pesan Anda.', 'bot');
         }
 
         function getCurrentTime() {
