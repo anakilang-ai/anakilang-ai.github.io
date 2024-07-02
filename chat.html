@@ -42,18 +42,21 @@
             color: white;
             margin: 0;
             font-size: 1.2em;
+            position: relative;
             transition: background-color 0.3s, color 0.3s;
         }
-        .room-history .new-chat {
-            text-align: center;
-            padding: 10px;
-            background-color: #27ae60;
-            color: white;
+        .room-history h3 .new-chat {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            color: #f5cba7;
+            font-size: 1.5em;
+            transition: color 0.3s;
         }
-        .room-history .new-chat:hover {
-            background-color: #2ecc71;
+        .room-history h3 .new-chat:hover {
+            color: #f8deb4;
         }
         .room-history ul {
             list-style-type: none;
@@ -180,8 +183,9 @@
 <body>
     <div class="container">
         <div class="room-history">
-            <h3>Riwayat Pencarian</h3>
-            <div class="new-chat" id="new-chat">New Chat</div>
+            <h3>Riwayat Pencarian 
+                <span class="new-chat" id="new-chat"><i class="fas fa-plus-circle"></i></span>
+            </h3>
             <ul id="room-list">
                 <!-- Room history items will appear here -->
             </ul>
