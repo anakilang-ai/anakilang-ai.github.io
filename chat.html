@@ -19,7 +19,8 @@
         }
         .container {
             display: flex;
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             height: 90vh;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -135,6 +136,38 @@
         }
         .dark-mode .message.bot {
             background-color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+                height: 95vh;
+            }
+            .chat-header {
+                font-size: 1.2em;
+            }
+            .chat-input input, .chat-input button {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            .chat-input .new-chat {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-header {
+                font-size: 1em;
+                padding: 10px;
+            }
+            .chat-input input, .chat-input button {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+            .chat-input .new-chat {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
