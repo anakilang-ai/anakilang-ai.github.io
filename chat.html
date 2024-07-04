@@ -48,6 +48,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
             max-width: 600px;
+            background: linear-gradient(135deg, #f0f2f5 0%, #d6d6d6 100%);
         }
 
         header {
@@ -57,11 +58,14 @@
             align-items: center;
             background-color: var(--bubble);
             border-bottom: 1px solid var(--input);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
 
         header h1 {
             margin: 0;
             font-size: 1.5em;
+            color: var(--text);
         }
 
         #theme-toggle {
@@ -69,6 +73,8 @@
             border: none;
             cursor: pointer;
             font-size: 1.2em;
+            color: var(--text);
+            transition: color 0.3s;
         }
 
         .chat-window {
@@ -92,6 +98,7 @@
             border-radius: 4px;
             background-color: var(--input);
             color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         #send-button {
@@ -102,11 +109,12 @@
             background-color: #007bff;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         #send-button:hover {
             background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .bubble {
@@ -116,6 +124,8 @@
             background-color: var(--bubble);
             max-width: 80%;
             word-wrap: break-word;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .user-bubble {
@@ -126,6 +136,17 @@
 
         .bot-bubble {
             align-self: flex-start;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media screen and (max-width: 600px) {
