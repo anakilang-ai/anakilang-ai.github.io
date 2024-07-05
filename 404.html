@@ -14,20 +14,24 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f2f5;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
             color: #333;
             overflow: hidden;
         }
 
         .container {
             text-align: center;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
             position: relative;
             z-index: 1;
+            max-width: 90%;
+            margin: 20px;
         }
 
         h1 {
@@ -69,7 +73,21 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3.5em;
+            }
+
+            p {
+                font-size: 1.3em;
+            }
+
+            .home-link {
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 900px) {
             h1 {
                 font-size: 3em;
             }
@@ -80,33 +98,33 @@
 
             .home-link {
                 padding: 8px 16px;
+                font-size: 1em;
             }
         }
 
-        .background-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 300%; /* Larger width to ensure smooth animation */
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .home-link {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .container {
+                padding: 20px;
+            }
         }
 
-        .background-svg svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: moveWaves 150s infinite linear; /* Longer duration for smoother animation */
-        }
-
-        @keyframes moveWaves {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-33.33%); /* Adjust to match the width percentage */
-            }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
@@ -115,12 +133,6 @@
         <h1>404</h1>
         <p>Sorry, the page you are looking for cannot be found.</p>
         <a href="/" class="home-link">Go to Homepage</a>
-    </div>
-    <div class="background-svg">
-        <svg viewBox="0 0 2400 400" preserveAspectRatio="none">
-            <path fill="#007bff" fill-opacity="0.6" d="M0,320L48,293.3C96,267,192,213,288,192C384,171,480,181,576,192C672,203,768,213,864,186.7C960,160,1056,96,1152,74.7C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-            <path fill="#007bff" fill-opacity="0.4" d="M0,320L48,266.7C96,213,192,107,288,90.7C384,75,480,149,576,154.7C672,160,768,96,864,96C960,96,1056,160,1152,176C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-        </svg>
     </div>
     <script>
         if (document.referrer) {
