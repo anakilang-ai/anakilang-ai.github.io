@@ -16,63 +16,48 @@
             height: 100vh;
             background-color: #f0f2f5;
             color: #333;
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
             font-size: 4em;
             margin-bottom: 0.5em;
             color: #007bff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         p {
             font-size: 1.5em;
-            margin-bottom: 1em;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2em;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+            margin-bottom: 1.5em;
         }
 
         .home-link {
             display: inline-block;
             margin-top: 1em;
             text-decoration: none;
-            color: #007bff;
-            font-size: 1.2em;
-            transition: color 0.3s;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .home-link:hover {
-            color: #0056b3;
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes fadeIn {
@@ -84,8 +69,34 @@
             }
         }
 
-        .container {
-            animation: fadeIn 1s ease-in-out;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            .home-link {
+                padding: 8px 16px;
+            }
+        }
+
+        .background-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .background-svg svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -93,21 +104,12 @@
     <div class="container">
         <h1>404</h1>
         <p>Sorry, the page you are looking for cannot be found.</p>
-        <!--<div class="search-container">
-            <input type="text" id="search" placeholder="Search our site...">
-            <button onclick="searchSite()">Search</button>
-        </div>-->
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
-    <script>
-        function searchSite() {
-            const query = document.getElementById('search').value.trim();
-            if (query) {
-                window.location.href = '/search?q=' + encodeURIComponent(query);
-            } else {
-                alert('Please enter a search term.');
-            }
-        }
-    </script>
+    <div class="background-svg">
+        <svg viewBox="0 0 800 400">
+            <path fill="#007bff" fill-opacity="0.6" d="M0,320L48,293.3C96,267,192,213,288,192C384,171,480,181,576,192C672,203,768,213,864,186.7C960,160,1056,96,1152,74.7C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+    </div>
 </body>
 </html>
