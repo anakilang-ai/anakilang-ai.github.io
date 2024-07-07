@@ -116,14 +116,17 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
                     var responseMessage = document.getElementById('response-message');
+                    var jsonResponse = JSON.parse(xhr.responseText);
+
                     if (xhr.status === 200) {
-                        responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Register successful!</div>';
-                        window.location.href = 'chat.html';
+                        responseMessage.innerHTML = '<div class="alert alert-success" role="alert">' + jsonResponse.message + '</div>';
+                        // Redirect or handle success scenario here
                     } else {
-                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Register failed: ' + xhr.responseText + '</div>';
+                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Register failed: ' + jsonResponse.message + '</div>';
                     }
                 }
             };
+
 
             xhr.send(JSON.stringify({
             namalengkap: document.getElementById('namalengkap').value,
