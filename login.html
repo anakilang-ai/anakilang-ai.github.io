@@ -78,12 +78,13 @@
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
             xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle success response
-                    console.log(xhr.responseText);
-                } else if (xhr.readyState === 4) {
-                    // Handle error response
-                    console.log(xhr.responseText);
+                if (xhr.readyState === 4) {
+                    var responseMessage = document.getElementById('response-message');
+                    if (xhr.status === 200) {
+                        responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Login successful!</div>';
+                    } else {
+                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Login failed: ' + xhr.responseText + '</div>';
+                    }
                 }
             };
 
