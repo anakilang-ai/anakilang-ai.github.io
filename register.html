@@ -126,11 +126,11 @@
             };
 
             xhr.send(JSON.stringify({
-                email: email,
-                password: password,
-                namalengkap: namalengkap,
-                confirmpassword: confirmpassword
-            }));
+            namalengkap: document.getElementById('namalengkap').value,
+            email: email,
+            password: password,
+            confirmpass: document.getElementById('confirmpassword').value
+        }));
         });
     </script>
 </body>
