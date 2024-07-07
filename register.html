@@ -54,6 +54,9 @@
         #register-form h3 {
             margin-bottom: 1.5rem;
         }
+        #response-message {
+            margin-top: 1rem;
+        }
     </style>
     <link rel="icon" type="image/png" href="images/favicon.ico" />
 </head>
@@ -84,6 +87,7 @@
                 <a href="login.html" class="text-info">Login here</a>
             </div>
         </form>
+        <div id="response-message"></div>
     </div>
     <script>
         document.getElementById('submit-btn').addEventListener('click', function() {
@@ -91,28 +95,35 @@
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
             var confirmpass = document.getElementById('confirmpass').value;
+            var responseMessage = document.getElementById('response-message');
+
+            if (password !== confirmpass) {
+                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Passwords do not match!</div>';
+                return;
+            }
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost:8080/signup', true);
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
             xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle success response
-                    alert('Registration successful!');
-                    console.log(xhr.responseText);
-                } else if (xhr.readyState === 4) {
-                    // Handle error response
-                    alert('Registration failed: ' + xhr.responseText);
-                    console.log(xhr.responseText);
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Registration successful!</div>';
+                        // Redirect to login page after 2 seconds
+                        setTimeout(function() {
+                            window.location.href = 'login.html';
+                        }, 2000);
+                    } else {
+                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Registration failed: ' + xhr.responseText + '</div>';
+                    }
                 }
             };
 
             xhr.send(JSON.stringify({
                 namalengkap: namalengkap,
                 email: email,
-                password: password,
-                confirmpass: confirmpass
+                password: password
             }));
         });
     </script>

@@ -68,6 +68,7 @@
             <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
                 <input type="password" name="password" id="password" class="form-control" required>
+                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
@@ -86,6 +87,15 @@
     </div>
 
     <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+
         document.getElementById('submit-btn').addEventListener('click', function() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
