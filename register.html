@@ -70,7 +70,7 @@
             </div>
             <div class="form-group">
                 <label for="email" class="text-info">Email:</label>
-                <input type="text" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
@@ -91,12 +91,32 @@
     </div>
     <script>
         document.getElementById('submit-btn').addEventListener('click', function() {
-            var namalengkap = document.getElementById('namalengkap').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var confirmpass = document.getElementById('confirmpass').value;
+            var namalengkap = document.getElementById('namalengkap').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var confirmpass = document.getElementById('confirmpass').value.trim();
             var responseMessage = document.getElementById('response-message');
 
+            // Reset response message
+            responseMessage.innerHTML = '';
+
+            // Validasi tambahan untuk memastikan data sudah lengkap
+            if (!namalengkap) {
+                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Nama Lengkap is required!</div>';
+                return;
+            }
+            if (!email) {
+                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Email is required!</div>';
+                return;
+            }
+            if (!password) {
+                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Password is required!</div>';
+                return;
+            }
+            if (!confirmpass) {
+                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Confirm Password is required!</div>';
+                return;
+            }
             if (password !== confirmpass) {
                 responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Passwords do not match!</div>';
                 return;
@@ -108,14 +128,20 @@
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
+                    if (xhr.status === 200 || xhr.status === 201) {
                         responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Registration successful!</div>';
-                        // Redirect to login page after 2 seconds
                         setTimeout(function() {
                             window.location.href = 'login.html';
                         }, 2000);
                     } else {
-                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Registration failed: ' + xhr.responseText + '</div>';
+                        var response;
+                        try {
+                            response = JSON.parse(xhr.responseText);
+                        } catch (e) {
+                            response = { message: 'Registration failed. Please try again.' };
+                        }
+                        var message = response.message || 'Registration failed';
+                        responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">' + message + '</div>';
                     }
                 }
             };
