@@ -12,7 +12,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
     var password = document.getElementById('password').value;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8080/signup', true);
+    xhr.open('POST', 'https://47.236.157.2:443/signup', true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
     xhr.onreadystatechange = function() {

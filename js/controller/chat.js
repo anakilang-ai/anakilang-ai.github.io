@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sendFallbackMessage();
         } else {
             // Send message to server
-            fetch('http://localhost:8080/chat', {
+            fetch('https://47.236.157.2:443/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
