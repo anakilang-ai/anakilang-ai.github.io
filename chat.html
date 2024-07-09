@@ -18,13 +18,13 @@
         <div class="input-container">
             <input type="text" id="chat-input" placeholder="Type a message...">
             <button id="send-button">Send</button>
-            <button id="logout-btn" onclick="logout()">Logout</button> <!-- Tombol Keluar -->
+            <button id="logout-btn" onclick="logout()">Logout</button> <!-- Tombol Logout -->
         </div>
     </div>
     <script src="/js/controller/chat.js"></script>
     <script>
         function logout() {
-            // Menghapus token dari localStorage
+            // Hapus token dari localStorage
             localStorage.removeItem('token');
             
             // Redirect ke halaman login setelah logout
