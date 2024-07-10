@@ -113,14 +113,8 @@ p {
     }
 }
 
-/* Mendefinisikan animasi @keyframes bernama gradientAnimation */
 @keyframes gradientAnimation {
-    /* Pada titik 0% dari durasi animasi, latar belakang berada pada posisi 0% secara horizontal dan 50% secara vertikal */
     0% { background-position: 0% 50%; }
-    
-    /* Pada titik 50% dari durasi animasi, latar belakang berada pada posisi 100% secara horizontal dan 50% secara vertikal */
     50% { background-position: 100% 50%; }
-    
-    /* Pada titik 100% dari durasi animasi, latar belakang kembali ke posisi 0% secara horizontal dan 50% secara vertikal */
     100% { background-position: 0% 50%; }
 }
