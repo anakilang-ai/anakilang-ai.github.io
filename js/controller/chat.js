@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendMessage = () => {
         const message = chatInput.value.trim();
         if (message) {
-            // Create user message bubble
+            
+    // Create user message bubble
             const userBubble = document.createElement('div');
             userBubble.className = 'bubble user-bubble';
             userBubble.textContent = message;
