@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Send fallback message
             sendFallbackMessage();
         } else {
-            // Send message to server
+           // Kirim pesan ke server
             fetch('https://47.236.157.2:443/chat', {
                 method: 'POST',
                 headers: {
