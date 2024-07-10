@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     let isDarkMode = false;
 
-    // Toggle theme between light and dark
+    // Alihkan tema antara terang dan gelap
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark');
         isDarkMode = !isDarkMode;
