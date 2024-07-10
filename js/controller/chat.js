@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
 
         if (isServiceUnavailable) {
-           // Kirim pesan cadangan
+           // Send fallback message
             sendFallbackMessage();
         } else {
            // Send Message To Server
