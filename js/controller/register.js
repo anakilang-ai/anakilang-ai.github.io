@@ -20,7 +20,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
             var responseMessage = document.getElementById('response-message');
             var jsonResponse = JSON.parse(xhr.responseText);
 
-            console.log(xhr.status); // Make sure status 201 is detected here
+            console.log(xhr.status); // Pastikan status 201 terdeteksi di sini
 
             if (xhr.status === 201) {
                 responseMessage.innerHTML = '<div class="alert alert-success" role="alert">' + jsonResponse.message + '</div>';
