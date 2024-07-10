@@ -24,7 +24,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 
             if (xhr.status === 201) {
                 responseMessage.innerHTML = '<div class="alert alert-success" role="alert">' + jsonResponse.message + '</div>';
-                // Clear the input value after successful registration
+                // Hapus nilai input setelah registrasi berhasil
                 document.getElementById('namalengkap').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('password').value = '';
