@@ -35,6 +35,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         }
     };
 
+    // Mengirimkan permintaan dengan data yang telah di-serialize ke format JSON
     xhr.send(JSON.stringify({
         namalengkap: document.getElementById('namalengkap').value,
         email: email,
