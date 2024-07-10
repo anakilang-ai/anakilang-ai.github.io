@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear input field
             chatInput.value = '';
 
-            // Gulir ke bawah
+            // Scroll down
             scrollToBottom();
             // Simulasikan respons bot atau tangani kesalahan
             simulateBotResponse(message);
