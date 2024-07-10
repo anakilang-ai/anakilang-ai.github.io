@@ -11,7 +11,9 @@ document.getElementById('submit-btn').addEventListener('click', function() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
+
     var xhr = new XMLHttpRequest();
+    // Membuka koneksi ke URL tujuan dengan metode POST
     xhr.open('POST', 'https://47.236.157.2:443/signup', true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
