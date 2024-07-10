@@ -25,11 +25,11 @@
                     }
                 })
                 .catch(() => {
-                    // If there's an error fetching the referrer page, redirect to 404 page
+                    // Jika ada kesalahan saat mengambil halaman perujuk, alihkan ke halaman 404
                     window.location.href = '/404.html';
                 });
         } else {
-            // If there's no referrer, redirect to homepage or 404 page based on your needs
+           // Jika tidak ada perujuk, alihkan ke beranda atau halaman 404 berdasarkan kebutuhan Anda
             console.log('No referrer detected');
         }
     </script>
