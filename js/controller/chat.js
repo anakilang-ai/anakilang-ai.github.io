@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-// Simulate bot response or handle errors
+// Simulasikan respons bot atau tangani kesalahan
     const simulateBotResponse = (message) => {
-        // Check if service is unavailable (simulated condition, replace with actual logic)
+       // Periksa apakah layanan tidak tersedia (kondisi simulasi, ganti dengan logika sebenarnya)
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
 
         if (isServiceUnavailable) {
