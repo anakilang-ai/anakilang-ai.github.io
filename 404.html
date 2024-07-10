@@ -10,17 +10,17 @@
 <body>
     <div class="container">
         <h1>404</h1>
-        <p>Sorry, the page you are looking for cannot be found</p>
+        <p>Sorry, the page you are looking for cannot be found.</p>
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
         if (document.referrer) {
             console.log(`Referrer: ${document.referrer}`);
-            // Check if referrer page is valid, if not redirect to 404 page
+           // Periksa apakah halaman perujuk valid, jika tidak dialihkan ke halaman 404
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
-                        // If referrer page is not valid, redirect to 404 page
+                        // Jika halaman perujuk tidak valid, alihkan ke halaman 404
                         window.location.href = '/404.html';
                     }
                 })
