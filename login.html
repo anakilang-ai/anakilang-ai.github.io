@@ -65,10 +65,10 @@
                         responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Login successful!</div>';
                         var responseData = JSON.parse(xhr.responseText);
                         var token = responseData.token; // Assuming the token key is 'token'
-                        // Simpan token dengan aman(e.g., in localStorage)
+                        // Store the token securely(e.g., in localStorage)
                         localStorage.setItem('token', token);
 
-                        // jendela.lokasi.href = 'chat.html';
+                        // window.location.href = 'chat.html';
                     } else {
                         responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Login failed: ' + xhr.responseText + '</div>';
                     }
