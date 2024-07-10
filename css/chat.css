@@ -6,6 +6,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Mendefinisikan variabel CSS untuk tema terang dan gelap */
 :root {
     --background-light: #f0f2f5;
     --background-dark: #1e1e1e;
