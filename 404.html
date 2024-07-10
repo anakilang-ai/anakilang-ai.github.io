@@ -16,11 +16,11 @@
     <script>
         if (document.referrer) {
             console.log(`Referrer: ${document.referrer}`);
-           // Periksa apakah halaman perujuk valid, jika tidak dialihkan ke halaman 404
+           // Check if the referring page is valid, if not redirect to 404 page
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
-                        // Jika halaman perujuk tidak valid, alihkan ke halaman 404
+                       // If the referring page is invalid, redirect to a 404 page
                         window.location.href = '/404.html';
                     }
                 })
