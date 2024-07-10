@@ -25,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear input field
             chatInput.value = '';
 
-            // Scroll to bottom
+            // Gulir ke bawah
             scrollToBottom();
-
-            // Simulate bot response or handle errors
+            // Simulasikan respons bot atau tangani kesalahan
             simulateBotResponse(message);
         }
     };
