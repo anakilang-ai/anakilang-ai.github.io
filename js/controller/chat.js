@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sendFallbackMessage();
         } else {
            // Send Message To Server
-            fetch('https://47.236.157.2:443/chat', {
+            fetch('https://ailang-api.up.railway.app/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
