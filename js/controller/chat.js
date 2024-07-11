@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     const themeToggle = document.getElementById('theme-toggle');
+    const logout = document.getElementById('logout-btn');
     let isDarkMode = false;
+
+    function logout() {
+        // Hapus token dari Penyimpanan lokal
+         localStorage.removeItem('token');
+         
+     // Redirect ke halaman login setelah logout
+         window.location.href = '/';
+     }
 
     // Switch the theme between light and dark
     themeToggle.addEventListener('click', () => {
