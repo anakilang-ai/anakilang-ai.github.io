@@ -3,16 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     const themeToggle = document.getElementById('theme-toggle');
-    const logout = document.getElementById('logout-btn');
+    const logoutBtn = document.getElementById('logout-btn');
     let isDarkMode = false;
 
-    function logout() {
-        // Hapus token dari Penyimpanan lokal
-         localStorage.removeItem('token');
-         
-     // Redirect ke halaman login setelah logout
-         window.location.href = '/';
-     }
+    // Function to logout
+    function logoutFunc() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+        
+        // Redirect to login page after logout
+        window.location.href = '/';
+    }
+
+    // Add event listener to logout button
+    logoutBtn.addEventListener('click', logoutFunc);
 
     // Switch the theme between light and dark
     themeToggle.addEventListener('click', () => {
@@ -25,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendMessage = () => {
         const message = chatInput.value.trim();
         if (message) {
-            
-    // Create user message bubble
+            // Create user message bubble
             const userBubble = document.createElement('div');
             userBubble.className = 'bubble user-bubble';
             userBubble.textContent = message;
@@ -37,21 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Scroll down
             scrollToBottom();
-            // Simulasikan respons bot atau tangani kesalahan
+            // Simulate bot response or handle error
             simulateBotResponse(message);
         }
     };
 
-// Simulasikan respons bot atau tangani kesalahan
+    // Simulate bot response or handle error
     const simulateBotResponse = (message) => {
-       // Periksa apakah layanan tidak tersedia (kondisi simulasi, ganti dengan logika sebenarnya)
+        // Check if service is unavailable (simulated condition, replace with actual logic if needed)
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
 
         if (isServiceUnavailable) {
-           // Send fallback message
+            // Send fallback message
             sendFallbackMessage();
         } else {
-           // Send Message To Server
+            // Send message to server
             fetch('https://ailang-api.up.railway.app/chat', {
                 method: 'POST',
                 headers: {
