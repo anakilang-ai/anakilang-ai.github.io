@@ -30,6 +30,28 @@ body {
 .form-group {
     margin-bottom: 1.5rem;
 }
+
+/* Mengatur gaya untuk elemen input */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #17a2b8;
+    box-shadow: 0 0 5px rgba(23, 162, 184, 0.5);
+}
+
+/* Mengatur gaya untuk tombol */
 .btn {
     width: 100%;
     padding: 10px;
@@ -56,6 +78,16 @@ body {
 #register-link {
     margin-top: 10px;
     text-align: center;
+}
+
+#register-link a {
+    color: #17a2b8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#register-link a:hover {
+    color: #138496;
 }
 
 /* Mengatur gaya untuk judul form */
