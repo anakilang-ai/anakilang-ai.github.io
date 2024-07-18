@@ -16,9 +16,6 @@ body {
     --bubble-dark: #2a2a2a;
     --input-light: #ffffff;
     --input-dark: #333333;
-    --accent-color: #007bff;
-    --accent-color-dark: #0056b3;
-    --border-radius: 12px;
 }
 
 .light {
@@ -42,13 +39,13 @@ body {
     height: calc(100vh - 80px); /* Tinggi layar dikurangi tinggi header */
     margin: 20px auto; /* Auto fit di tengah layar dengan margin 20px */
     border: 1px solid var(--bubble);
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     background: linear-gradient(135deg, #f0f2f5 0%, #d6d6d6 100%);
     padding: 20px;
-    background-color: var(--background);
+    padding: var(--bubble); /* Menggunakan --bubble untuk padding */
 }
 
 /* Ganti gaya header */
@@ -104,7 +101,7 @@ header h1 {
     flex: 1;
     padding: 10px;
     border: 1px solid var(--input);
-    border-radius: var(--border-radius);
+    border-radius: 4px;
     background-color: var(--input);
     color: var(--text);
     transition: background-color 0.3s, color 0.3s;
@@ -114,22 +111,22 @@ header h1 {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
-    border-radius: var(--border-radius);
-    background-color: var(--accent-color);
+    border-radius: 4px;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 #send-button:hover {
-    background-color: var(--accent-color-dark);
+    background-color: #0056b3;
     transform: scale(1.05);
 }
 
 .bubble {
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     background-color: var(--bubble);
     max-width: 80%;
     word-wrap: break-word;
@@ -140,14 +137,14 @@ header h1 {
 /* Tambahkan style untuk bubble pengguna (user-bubble) di sisi kanan */
 .user-bubble {
     align-self: flex-end;
-    background-color: var(--accent-color);
+    background-color: #007bff;
     color: white;
     margin-left: auto; /* Menjadikan gelembung pengguna (user bubble) di sebelah kanan */
     text-align: right; /* Meletakkan teks di dalam gelembung pengguna (user bubble) rata kanan */
     max-width: fit-content; /* Menetapkan lebar maksimum gelembung */
     word-wrap: break-word; /* Memastikan teks yang panjang tidak keluar dari gelembung */
     padding: 10px; /* Memberi ruang di dalam gelembung */
-    border-radius: var(--border-radius); /* Mengubah sudut gelembung */
+    border-radius: 10px; /* Mengubah sudut gelembung */
     margin-bottom: 10px; /* Memberi ruang antara gelembung */
     animation: fadeIn 0.3s ease-in-out; /* Animasi munculnya gelembung */
 }
@@ -161,26 +158,24 @@ header h1 {
     max-width: fit-content; /* Menetapkan lebar maksimum gelembung */
     word-wrap: break-word; /* Memastikan teks yang panjang tidak keluar dari gelembung */
     padding: 10px; /* Memberi ruang di dalam gelembung */
-    border-radius: var(--border-radius); /* Mengubah sudut gelembung */
+    border-radius: 10px; /* Mengubah sudut gelembung */
     margin-bottom: 10px; /* Memberi ruang antara gelembung */
     animation: fadeIn 0.3s ease-in-out; /* Animasi munculnya gelembung */
 }
 
 #logout-btn {
+    
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 4px;
     background-color: #ff0000;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
 
-#logout-btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
-}
+
 
 @keyframes fadeIn {
     from {
