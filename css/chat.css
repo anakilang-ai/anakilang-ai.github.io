@@ -19,8 +19,6 @@ body {
     --accent-color: #007bff;
     --accent-color-dark: #0056b3;
     --border-radius: 12px;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-dark: rgba(0, 0, 0, 0.5);
 }
 
 .light {
@@ -28,7 +26,6 @@ body {
     --text: var(--text-light);
     --bubble: var(--bubble-light);
     --input: var(--input-light);
-    --shadow: var(--shadow-light);
 }
 
 .dark {
@@ -36,7 +33,6 @@ body {
     --text: var(--text-dark);
     --bubble: var(--bubble-dark);
     --input: var(--input-dark);
-    --shadow: var(--shadow-dark);
 }
 
 .chat-container {
@@ -48,10 +44,11 @@ body {
     border: 1px solid var(--bubble);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 8px var(--shadow);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    background: var(--background);
-    transition: background 0.3s;
+    background: linear-gradient(135deg, #f0f2f5 0%, #d6d6d6 100%);
+    padding: 20px;
+    background-color: var(--background);
 }
 
 /* Ganti gaya header */
@@ -62,7 +59,7 @@ header {
     align-items: center;
     background-color: var(--bubble);
     border-bottom: 1px solid var(--input);
-    box-shadow: 0 2px 4px var(--shadow);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
     position: sticky; /* Tetap pada posisi atas saat menggulir */
     top: 0; /* Posisikan di bagian atas */
@@ -90,7 +87,6 @@ header h1 {
     padding: 20px;
     overflow-y: auto; /* Gunakan scroll jika konten melebihi ketinggian */
     background-color: var(--background);
-    transition: background-color 0.3s;
 }
 
 /* Ganti gaya .input-container */
@@ -102,7 +98,6 @@ header h1 {
     position: sticky; /* Tetap pada posisi bawah saat menggulir */
     bottom: 0; /* Posisikan di bagian bawah */
     z-index: 1; /* Menetapkan z-index untuk menangani tumpukan */
-    box-shadow: 0 -2px 4px var(--shadow);
 }
 
 #chat-input {
@@ -124,7 +119,6 @@ header h1 {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px var(--shadow);
 }
 
 #send-button:hover {
@@ -139,7 +133,7 @@ header h1 {
     background-color: var(--bubble);
     max-width: 80%;
     word-wrap: break-word;
-    box-shadow: 0 2px 4px var(--shadow);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -181,7 +175,6 @@ header h1 {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px var(--shadow);
 }
 
 #logout-btn:hover {
