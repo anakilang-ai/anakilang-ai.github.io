@@ -9,8 +9,6 @@ body {
     align-items: center;
     font-family: 'Roboto', sans-serif;
 }
-
-/* Mengatur gaya untuk kontainer utama */
 .container {
     max-width: 500px;
     padding: 30px;
@@ -19,88 +17,30 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-in-out;
 }
-
-/* Animasi fadeIn */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-/* Mengatur gaya untuk grup form */
 .form-group {
     margin-bottom: 1.5rem;
 }
-
-/* Mengatur gaya untuk elemen input */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #17a2b8;
-    box-shadow: 0 0 5px rgba(23, 162, 184, 0.5);
-}
-
-/* Mengatur gaya untuk tombol */
 .btn {
     width: 100%;
-    padding: 10px;
-    background: linear-gradient(45deg, #17a2b8, #138496);
+    background-color: #17a2b8;
     border: none;
     color: white;
     font-weight: 500;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
 }
-
 .btn:hover {
-    background: linear-gradient(45deg, #138496, #17a2b8);
-    transform: scale(1.02);
+    background-color: #138496;
 }
-
-/* Mengatur gaya untuk teks informasi */
 .text-info {
     font-size: 0.9rem;
     color: #17a2b8;
 }
-
-/* Mengatur gaya untuk tautan register */
 #register-link {
     margin-top: 10px;
-    text-align: center;
 }
-
-#register-link a {
-    color: #17a2b8;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-#register-link a:hover {
-    color: #138496;
-}
-
-/* Mengatur gaya untuk judul form */
 #login-form h3 {
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: #333;
-    text-align: center;
-}
-
-/* Responsif */
-@media screen and (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
 }
