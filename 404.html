@@ -6,30 +6,48 @@
     <title>404 Not Found</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/404.css">
+    <style>
+        /* Simple animation for 404 message */
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .home-link:hover, .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>404</h1>
         <p>Sorry, the page you were looking for could not be found.</p>
         <a href="/" class="home-link">Go to Home</a>
+        <a href="javascript:history.back()" class="back-link">Go Back</a>
     </div>
     <script>
+        // Check if there is a referrer
         if (document.referrer) {
             console.log(`Referrer: ${document.referrer}`);
-           // Check if the referring page is valid, if not redirect to 404 page
+            // Verify if the referring page is valid
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
-                       // If the referring page is invalid, redirect to a 404 page
+                        // If the referring page is invalid, redirect to the 404 page
                         window.location.href = '/404.html';
                     }
                 })
                 .catch(() => {
-                    // Jika ada kesalahan saat mengambil halaman perujuk, alihkan ke halaman 404
+                    // If there is an error fetching the referring page, redirect to the 404 page
                     window.location.href = '/404.html';
                 });
         } else {
-           // Jika tidak ada perujuk, alihkan ke beranda atau halaman 404 berdasarkan kebutuhan Anda
+            // If there is no referrer, log a message (or handle as needed)
             console.log('No referrer detected');
         }
     </script>
