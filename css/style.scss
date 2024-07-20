@@ -453,6 +453,32 @@ a:focus {
       margin-top: 15px;
     }
 
+    a {
+      @include hero_btn($btnColor, $white, 10px, 0, 0);
+      text-align: center;
+      width: 165px;
+      font-size: 15px;
+      margin: 45px 0 0 0;
+    }
+  }
+}
+
+// Client section
+.client_section {
+  background-color: $primary2;
+
+  .heading_container {
+    h2 {
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
+
+  .layout_padding2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
     .box {
       text-align: center;
       margin-top: 15px;
@@ -537,5 +563,93 @@ a:focus {
   p {
     margin-bottom: 0;
     text-align: center;
+  }
+}
+
+// Media Queries
+@media (max-width: 991px) {
+  .custom_nav-container {
+    height: auto;
+    padding: 15px;
+
+    .nav_search-btn {
+      display: none;
+    }
+  }
+
+  .hero_area {
+    height: auto;
+    background: $primary2;
+  }
+
+  .slider_section .img-container {
+    display: none;
+  }
+
+  .slider_section .detail-box {
+    margin-top: 30px;
+
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .layout_padding,
+  .layout_padding2 {
+    padding: 45px 0;
+  }
+
+  .layout_padding2-top,
+  .layout_padding-top {
+    padding-top: 45px;
+  }
+
+  .layout_padding2-bottom,
+  .layout_padding-bottom {
+    padding-bottom: 45px;
+  }
+
+  .slider_section .detail-box {
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .hero_area {
+    height: auto;
+    background: $primary2;
+  }
+
+  .slider_section .carousel-control-prev,
+  .slider_section .carousel-control-next {
+    display: none;
+  }
+
+  .slider_section .img-container {
+    display: none;
+  }
+
+  .slider_section .detail-box {
+    margin-top: 20px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 }
