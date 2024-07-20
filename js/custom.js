@@ -1,17 +1,19 @@
-// Toggle navigation menu and button style
+// nav menu style
 var nav = $("#navbarSupportedContent");
 var btn = $(".custom_menu-btn");
-
+btn.click
 btn.click(function (e) {
+
     e.preventDefault();
     nav.toggleClass("lg_nav-toggle");
-    btn.toggleClass("menu_btn-style"); // Use btn instead of document.querySelector for consistency
+    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
 });
 
-// Display the current year
+
 function getCurrentYear() {
     var d = new Date();
-    var currentYear = d.getFullYear();
+    var currentYear = d.getFullYear()
+
     $("#displayDate").html(currentYear);
 }
 
