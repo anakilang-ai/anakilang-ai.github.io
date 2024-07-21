@@ -22,6 +22,31 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = isDarkMode ? '🌞' : '🌙';
     });
 
+    // Function to send message
+    const sendMessage = async () => {
+        const message = chatInput.value.trim();
+        if (message) {
+            createUserBubble(message);
+            chatInput.value = '';
+            scrollToBottom();
+
+            try {
+                await simulateBotResponse(message);
+            } catch (error) {
+                console.error('Error:', error);
+                sendFallbackMessage();
+            }
+        }
+    };
+
+    // Create user message bubble
+    const createUserBubble = (message) => {
+        const userBubble = document.createElement('div');
+        userBubble.className = 'bubble user-bubble';
+        userBubble.textContent = message;
+        chatWindow.appendChild(userBubble);
+    };
+
     // Simulate bot response or handle error
     const simulateBotResponse = async (message) => {
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
