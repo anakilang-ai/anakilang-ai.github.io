@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Create user message bubble
+    const createUserBubble = (message) => {
+        const userBubble = document.createElement('div');
+        userBubble.className = 'bubble user-bubble';
+        userBubble.textContent = message;
+        chatWindow.appendChild(userBubble);
+    };
+
     // Simulate bot response or handle error
     const simulateBotResponse = async (message) => {
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
@@ -66,6 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw error;
             }
         }
+    };
+
+    // Create bot message bubble
+    const createBotBubble = (message) => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'bubble bot-bubble';
+        botBubble.textContent = message;
+        chatWindow.appendChild(botBubble);
     };
 
     // Function to send fallback message
