@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-// Simulate bot response or handle errors
+    // Simulate bot response or handle errors
     const simulateBotResponse = (message) => {
         // Check if service is unavailable (simulated condition, replace with actual logic)
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Handle successful response
                 const botBubble = document.createElement('div');
                 botBubble.className = 'bubble bot-bubble';
-                botBubble.textContent = data.response; // Assuming 'response' is the key in JSON response
+                botBubble.textContent = data.answer; // Changed to 'answer' to match the API response
                 chatWindow.appendChild(botBubble);
                 scrollToBottom();
             })
