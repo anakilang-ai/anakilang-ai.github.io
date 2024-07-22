@@ -21,9 +21,14 @@ document.getElementById('submit-btn').addEventListener('click', function() {
             if (xhr.status === 200) {
                 responseMessage.innerHTML = '<div class="alert alert-success" role="alert">Login successful!</div>';
                 var responseData = JSON.parse(xhr.responseText);
-                var token = responseData.token; // Assuming the token key is 'token'
-                // Store the token securely(e.g., in localStorage)
-                localStorage.setItem('token', token);
+                console.log("Response Data:", responseData); // Debugging line
+                if (responseData.token) {
+                    var token = responseData.token;
+                    console.log("Token:", token); // Debugging line
+                    localStorage.setItem('token', token);
+                } else {
+                    console.error("Token not found in response");
+                }
 
                 // window.location.href = 'chat.html';
             } else {

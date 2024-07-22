@@ -10,27 +10,26 @@
 <body>
     <div class="container">
         <h1>404</h1>
-        <p>Sorry, the page you were looking for could not be found.</p>
-        <a href="/" class="home-link">Go to Home</a>
+        <p>Sorry, the page you are looking for cannot be found.</p>
+        <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
-        // Check if there is a referrer
         if (document.referrer) {
             console.log(`Referrer: ${document.referrer}`);
-            // Verify if the referring page is valid
+            // Check if referrer page is valid, if not redirect to 404 page
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
-                        // If the referring page is invalid, redirect to the 404 page
+                        // If referrer page is not valid, redirect to 404 page
                         window.location.href = '/404.html';
                     }
                 })
                 .catch(() => {
-                    // If there is an error fetching the referring page, redirect to the 404 page
+                    // If there's an error fetching the referrer page, redirect to 404 page
                     window.location.href = '/404.html';
                 });
         } else {
-            // If there is no referrer, log a message (or handle as needed)
+            // If there's no referrer, redirect to homepage or 404 page based on your needs
             console.log('No referrer detected');
         }
     </script>

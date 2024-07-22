@@ -3,22 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     const themeToggle = document.getElementById('theme-toggle');
-    const logoutBtn = document.getElementById('logout-btn');
     let isDarkMode = false;
 
-    // Function to logout
-    function logoutFunc() {
-        // Remove token from local storage
-        localStorage.removeItem('token');
-        
-        // Redirect to login page after logout
-        window.location.href = '/';
-    }
-
-    // Add event listener to logout button
-    logoutBtn.addEventListener('click', logoutFunc);
-
-    // Switch the theme between light and dark
+    // Toggle theme between light and dark
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark');
         isDarkMode = !isDarkMode;
@@ -38,16 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear input field
             chatInput.value = '';
 
-            // Scroll down
+            // Scroll to bottom
             scrollToBottom();
-            // Simulate bot response or handle error
+
+            // Simulate bot response or handle errors
             simulateBotResponse(message);
         }
     };
 
-    // Simulate bot response or handle error
+// Simulate bot response or handle errors
     const simulateBotResponse = (message) => {
-        // Check if service is unavailable (simulated condition, replace with actual logic if needed)
+        // Check if service is unavailable (simulated condition, replace with actual logic)
         const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
 
         if (isServiceUnavailable) {
@@ -55,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sendFallbackMessage();
         } else {
             // Send message to server
-            fetch('https://ailang-api.up.railway.app/chat', {
+            fetch('https://47.236.157.2:443/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

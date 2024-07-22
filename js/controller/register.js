@@ -11,7 +11,6 @@ document.getElementById('submit-btn').addEventListener('click', function() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
-
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://47.236.157.2:443/signup', true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -25,7 +24,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 
             if (xhr.status === 201) {
                 responseMessage.innerHTML = '<div class="alert alert-success" role="alert">' + jsonResponse.message + '</div>';
-                // Hapus nilai input setelah registrasi berhasil
+                // Kosongkan nilai input setelah registrasi berhasil
                 document.getElementById('namalengkap').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('password').value = '';
@@ -35,7 +34,6 @@ document.getElementById('submit-btn').addEventListener('click', function() {
             }
         }
     };
-
 
     xhr.send(JSON.stringify({
         namalengkap: document.getElementById('namalengkap').value,
