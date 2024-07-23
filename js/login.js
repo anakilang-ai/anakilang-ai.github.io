@@ -1,3 +1,25 @@
+import { UrlLogin, token } from './config.js';
+
+const apiURL = UrlLogin;
+const loginForm = document.getElementById("login-form");
+
+loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(loginForm);
+    const response = await fetch(apiURL, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        },
+        body: formData
+    });
+    const result = await response.json();
+    document.getElementById("login-result").innerText = result.message;
+});
+
+
+
+
 document.getElementById('show-password').addEventListener('change', function() {
     var passwordField = document.getElementById('password');
     if (this.checked) {
