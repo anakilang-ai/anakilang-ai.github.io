@@ -836,14 +836,14 @@ a:focus {
   opacity: 1;
 }
 
-.custom_menu-btn button {
+.custom_menubtn button {
   margin-top: 12px;
   outline: none;
   border: none;
   background-color: transparent;
 }
 
-.custom_menu-btn button span {
+.custom_menubtn button span {
   display: block;
   width: 34px;
   height: 4px;
@@ -854,7 +854,7 @@ a:focus {
   border-radius: 10px;
 }
 
-.custom_menu-btn .s-2 {
+.custom_menubtn .s-2 {
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
   width: 17px;
