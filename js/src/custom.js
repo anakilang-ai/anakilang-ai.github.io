@@ -1,6 +1,7 @@
 // nav menu style
 var nav = $("#navbarSupportedContent");
 var btn = $(".custom_menu-btn");
+
 btn.click
 btn.click(function (e) {
 
