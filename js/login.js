@@ -1,4 +1,4 @@
-import { UrlLogin, token } from './config.js';
+import { UrlLogin, token } from './src/config.js';
 
 const apiURL = UrlLogin;
 const loginForm = document.getElementById("login-form");
