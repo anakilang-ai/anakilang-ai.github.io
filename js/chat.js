@@ -1,100 +1,30 @@
+// chat.js
+import { toggleTheme, sendMessage, simulateBotResponse, sendFallbackMessage, scrollToBottom, handleLogout } from '../js/src/controller.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const chatWindow = document.getElementById('chat-window');
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     const themeToggle = document.getElementById('theme-toggle');
+    const logoutButton = document.getElementById('logout-btn');
     let isDarkMode = false;
 
-    // Toggle theme between light and dark
+    // Event listeners
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        isDarkMode = !isDarkMode;
-        themeToggle.textContent = isDarkMode ? '🌞' : '🌙';
+        isDarkMode = toggleTheme(themeToggle, isDarkMode);
     });
 
-    // Send message function
-    const sendMessage = () => {
-        const message = chatInput.value.trim();
-        if (message) {
-            // Create user message bubble
-            const userBubble = document.createElement('div');
-            userBubble.className = 'bubble user-bubble';
-            userBubble.textContent = message;
-            chatWindow.appendChild(userBubble);
-
-            // Clear input field
-            chatInput.value = '';
-
-            // Scroll to bottom
-            scrollToBottom();
-
-            // Simulate bot response or handle errors
-            simulateBotResponse(message);
-        }
-    };
-
-    // Simulate bot response or handle errors
-    const simulateBotResponse = (message) => {
-        // Check if service is unavailable (simulated condition, replace with actual logic)
-        const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
-
-        if (isServiceUnavailable) {
-            // Send fallback message
-            sendFallbackMessage();
-        } else {
-            // Send message to server
-            fetch('https://ailang-api.up.railway.app/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    prompt: message
-                })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Service Unavailable');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Handle successful response
-                const botBubble = document.createElement('div');
-                botBubble.className = 'bubble bot-bubble';
-                botBubble.textContent = data.answer; // Changed to 'answer' to match the API response
-                chatWindow.appendChild(botBubble);
-                scrollToBottom();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Send fallback message if error is 503
-                sendFallbackMessage();
-            });
-        }
-    };
-
-    // Function to send fallback message
-    const sendFallbackMessage = () => {
-        const botBubble = document.createElement('div');
-        botBubble.className = 'bubble bot-bubble';
-        const fallbackMessage = "Beli baju di Pasar Baru,<br>Pilih warna biru yang cerah.<br>Modelnya sedang dimuat ya kakak,<br>Jadi mohon bersabar.";
-        botBubble.innerHTML = fallbackMessage; // Use innerHTML to render HTML tags like <br>
-        chatWindow.appendChild(botBubble);
-        scrollToBottom();
-    };
-
-    // Function to scroll chat window to bottom
-    const scrollToBottom = () => {
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-    };
-
-    // Event listeners
-    sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('click', () => {
+        sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+    });
 
     chatInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            sendMessage();
+            sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
         }
+    });
+
+    logoutButton.addEventListener('click', () => {
+        handleLogout();
     });
 });
