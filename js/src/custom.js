@@ -1,17 +1,21 @@
-const nav = document.getElementById('navbarSupportedContent');
-const btn = document.querySelector('.custom_menuBtn');
+// nav menu style
+var nav = $("#navbarSupportedContent");
+var btn = $(".custom_menubtn");
 
-btn.addEventListener('click', (e) => {
-  e.preventDefault();
-  nav.classList.toggle('lg_nav-toggle');
-  btn.classList.toggle('menu_btn-style');
+btn.click
+btn.click(function (e) {
+
+    e.preventDefault();
+    nav.toggleClass("lg_nav-toggle");
+    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
 });
 
+
 function getCurrentYear() {
-  const d = new Date();
-  const currentYear = d.getFullYear();
-  const displayDate = document.getElementById('displayDate');
-  displayDate.textContent = currentYear;
+    var d = new Date();
+    var currentYear = d.getFullYear()
+
+    $("#displayDate").html(currentYear);
 }
 
 getCurrentYear();
