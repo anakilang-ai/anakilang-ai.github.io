@@ -1,44 +1,16 @@
-document.getElementById('show-password').addEventListener('change', function() {
-    var passwordField = document.getElementById('password');
-    if (this.checked) {
-        passwordField.type = 'text';
-    } else {
-        passwordField.type = 'password';
-    }
-});
+import { handleRegister } from '../js/src/controller.js';
 
-document.getElementById('submit-btn').addEventListener('click', function() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("register-form");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    handleRegister();
+  });
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://47.236.157.2:443/signup', true);
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            var responseMessage = document.getElementById('response-message');
-            var jsonResponse = JSON.parse(xhr.responseText);
-
-            console.log(xhr.status); // Pastikan status 201 terdeteksi di sini
-
-            if (xhr.status === 201) {
-                responseMessage.innerHTML = '<div class="alert alert-success" role="alert">' + jsonResponse.message + '</div>';
-                // Kosongkan nilai input setelah registrasi berhasil
-                document.getElementById('namalengkap').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('password').value = '';
-                document.getElementById('confirmpassword').value = '';
-            } else {
-                responseMessage.innerHTML = '<div class="alert alert-danger" role="alert">Register failed: ' + jsonResponse.message + '</div>';
-            }
-        }
-    };
-
-    xhr.send(JSON.stringify({
-        namalengkap: document.getElementById('namalengkap').value,
-        email: email,
-        password: password,
-        confirmpass: document.getElementById('confirmpassword').value
-    }));
+  // Menampilkan atau menyembunyikan password
+  const showPasswordCheckbox = document.getElementById("show-password");
+  showPasswordCheckbox.addEventListener("change", function() {
+    const passwordField = document.getElementById("password");
+    passwordField.type = this.checked ? "text" : "password";
+  });
 });
