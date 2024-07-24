@@ -7,7 +7,7 @@ btn.click(function (e) {
 
     e.preventDefault();
     nav.toggleClass("lg_nav-toggle");
-    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+    document.querySelector(".custom_menubtn").classList.toggle("menu_btn-style")
 });
 
 
