@@ -14,30 +14,30 @@
 <body>
     <div class="container">
         <form id="login-form" class="form">
-            <h3 class="text-center text-info">Login</h3>
+            <h3 class="text-center text-primary">Login</h3>
             <div class="form-group">
-                <label for="email" class="text-info">Email:</label>
+                <label for="email" class="text-primary">Email:</label>
                 <input type="text" name="email" id="email" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="password" class="text-info">Password:</label>
+                <label for="password" class="text-primary">Password:</label>
                 <input type="password" name="password" id="password" class="form-control" required>
-                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
+                <input type="checkbox" id="toggle-password" class="mt-2"> <label for="toggle-password" class="text-primary">Show Password</label>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
-                    <label class="custom-control-label text-info" for="remember-me">Remember me</label>
+                    <label class="custom-control-label text-primary" for="remember-me">Remember me</label>
                 </div>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-md">
             </div>
             <div id="register-link" class="text-right">
-                <a href="register.html" class="text-info">Register here</a>
+                <a href="register.html" class="text-primary">Register here</a>
             </div>
         </form>
-        <div id="response-message"></div>
+        <div id="response"></div>
     </div>
     <script type="module" src="../js/login.js"></script>
 </body>
