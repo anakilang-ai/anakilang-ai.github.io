@@ -3,50 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANAK ILANG | SIGN UP</title>
+    <title>ANAK ILANG | REGISTER</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/signup.css">
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.ico" />
 </head>
 <body>
     <div class="container">
-        <form id="signup-form" class="form">
-            <h3 class="text-center text-primary">Sign Up</h3>
+        <form id="register-form" class="form">
+            <h3 class="text-center text-info">Register</h3>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="fullname" class="text-primary">Full Name:</label>
-                    <input type="text" name="fullname" id="fullname" class="form-control" required>
+                    <label for="namalengkap" class="text-info">Nama Lengkap:</label>
+                    <input type="text" name="namalengkap" id="namalengkap" class="form-control" required>
                 </div>
-                <label for="useremail" class="text-primary">Email:</label>
-                <input type="email" name="useremail" id="useremail" class="form-control" required>
+                <label for="email" class="text-info">Email:</label>
+                <input type="text" name="email" id="email" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="userpassword" class="text-primary">Password:</label>
-                <input type="password" name="userpassword" id="userpassword" class="form-control" required>
-                <input type="checkbox" id="toggle-password" class="mt-2"> <label for="toggle-password" class="text-primary">Show Password</label>
+                <label for="password" class="text-info">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
             </div>
             <div class="form-group">
-                <label for="confirmuserpassword" class="text-primary">Confirm Password</label>
-                <input type="password" name="confirmuserpassword" id="confirmuserpassword" class="form-control" required>
+                <label for="confirmpassword" class="text-info">Confirm Password</label>
+                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="keep-logged-in" name="keep-logged-in">
-                    <label class="custom-control-label text-primary" for="keep-logged-in">Keep me logged in</label>
+                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
+                    <label class="custom-control-label text-info" for="remember-me">Remember me</label>
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-md">
+                <input type="submit" class="btn btn-md">
             </div>
-            <div id="signup-link" class="text-right">
-                <a href="login.html" class="text-primary">Already have an account? Login</a>
+            <div id="register-link" class="text-right">
+                <a href="login.html" class="text-info">Login here</a>
             </div>
         </form>
-        <div id="status-message"></div>
+        <div id="response-message"></div>
     </div>
-    <script type="module" src="../js/signup.js"></script>
+    <script type="module" src="../js/register.js"></script>
 </body>
 </html>
