@@ -5,41 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 6em;
-            margin: 0.2em;
-            color: #dc3545;
-        }
-        p {
-            font-size: 1.2em;
-            color: #6c757d;
-        }
-        .home-link {
-            display: inline-block;
-            margin-top: 1em;
-            padding: 0.5em 1em;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="css/404.css">
 </head>
 <body>
     <div class="container">
@@ -48,7 +14,7 @@
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
-        if (document.referrer && !document.referrer.includes('/404.html')) {
+        if (document.referrer) {
             console.log(`Referrer: ${document.referrer}`);
             // Check if referrer page is valid, if not redirect to 404 page
             fetch(document.referrer, { method: 'HEAD' })
@@ -63,7 +29,8 @@
                     window.location.href = '/404.html';
                 });
         } else {
-            console.log('No valid referrer detected');
+            // If there's no referrer, redirect to homepage or 404 page based on your needs
+            console.log('No referrer detected');
         }
     </script>
 </body>
