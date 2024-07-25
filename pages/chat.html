@@ -6,21 +6,23 @@
     <title>ANAK ILANG | CHAT</title>
     <link rel="stylesheet" href="../css/chat.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../asssets/images/favicon.ico" />
 </head>
-<body class="theme-light">
-    <div class="chat-box">
+<body class="light">
+    <div class="chat-container">
         <header>
-            <h1>Chat with Anak Ilang</h1>
-            <button id="toggle-theme">🌞</button>
+            <h1>Chatbot Anak Ilang</h1>
+            <button id="theme-toggle">🌙</button>
         </header>
-        <div class="chat-area" id="chat-area"></div>
-        <div class="message-input">
-            <input type="text" id="message-input" placeholder="Enter your message...">
-            <button id="submit-button">Send</button>
-            <button id="exit-button">Logout</button> <!-- Logout Button -->
+        <div class="chat-window" id="chat-window"></div>
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+            <button id="logout-btn">Logout</button> <!-- Tombol Logout -->
         </div>
     </div>
     <script type="module" src="../js/chat.js"></script>
+    <script>
+    </script>
 </body>
 </html>
