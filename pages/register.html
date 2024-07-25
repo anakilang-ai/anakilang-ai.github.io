@@ -24,25 +24,25 @@
                 <input type="email" name="useremail" id="useremail" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="password" class="text-info">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
+                <label for="userpassword" class="text-primary">Password:</label>
+                <input type="password" name="userpassword" id="userpassword" class="form-control" required>
+                <input type="checkbox" id="toggle-password" class="mt-2"> <label for="toggle-password" class="text-primary">Show Password</label>
             </div>
             <div class="form-group">
-                <label for="confirmpassword" class="text-info">Confirm Password</label>
-                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required>
+                <label for="confirmuserpassword" class="text-primary">Confirm Password</label>
+                <input type="password" name="confirmuserpassword" id="confirmuserpassword" class="form-control" required>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
-                    <label class="custom-control-label text-info" for="remember-me">Remember me</label>
+                    <input type="checkbox" class="custom-control-input" id="keep-logged-in" name="keep-logged-in">
+                    <label class="custom-control-label text-primary" for="keep-logged-in">Keep me logged in</label>
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-md">
+                <input type="submit" class="btn btn-primary btn-md">
             </div>
-            <div id="register-link" class="text-right">
-                <a href="login.html" class="text-info">Login here</a>
+            <div id="signup-link" class="text-right">
+                <a href="login.html" class="text-primary">Already have an account? Login</a>
             </div>
         </form>
         <div id="status-message"></div>
