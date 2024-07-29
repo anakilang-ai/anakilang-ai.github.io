@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     handleRegistration();
   });
-  // Menampilkan atau menyembunyikan password
-  const showPasswordCheckbox = document.getElementById("show-password");
-  showPasswordCheckbox.addEventListener("change", function() {
-    const passwordField = document.getElementById("password");
-    passwordField.type = this.checked ? "text" : "password";
+  // Toggle password visibility
+  const passwordToggle = document.querySelector("#toggle-password");
+  passwordToggle.addEventListener("change", () => {
+    const passField = document.querySelector("#userpassword");
+    passField.type = passwordToggle.checked ? "text" : "password";
   });
 });
