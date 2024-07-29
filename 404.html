@@ -6,47 +6,6 @@
     <title>404 Not Found</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/404.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 100px;
-            margin: 0;
-            color: #333;
-        }
-        p {
-            font-size: 18px;
-            color: #666;
-        }
-        .home-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -55,21 +14,23 @@
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
-        // Ensure the script is executed only in the browser context
-        if (typeof window !== 'undefined') {
-            if (document.referrer) {
-                fetch(document.referrer, { method: 'HEAD' })
-                    .then(response => {
-                        if (!response.ok) {
-                            window.location.href = '/404.html';
-                        }
-                    })
-                    .catch(() => {
+        if (document.referrer) {
+            console.log(Referrer: ${document.referrer});
+            // Check if referrer page is valid, if not redirect to 404 page
+            fetch(document.referrer, { method: 'HEAD' })
+                .then(response => {
+                    if (!response.ok) {
+                        // If referrer page is not valid, redirect to 404 page
                         window.location.href = '/404.html';
-                    });
-            } else {
-                console.log('No referrer detected');
-            }
+                    }
+                })
+                .catch(() => {
+                    // If there's an error fetching the referrer page, redirect to 404 page
+                    window.location.href = '/404.html';
+                });
+        } else {
+            // If there's no referrer, redirect to homepage or 404 page based on your needs
+            console.log('No referrer detected');
         }
     </script>
 </body>
