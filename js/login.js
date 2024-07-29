@@ -1,12 +1,12 @@
-import { handleLogin } from '../js/src/controller.js';
+import { loginHandler } from '../js/src/controller.js';
 
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("login-form");
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    handleLogin();
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector("#login-form");
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    loginHandler();
   });
-
+  
   // Menampilkan atau menyembunyikan password
   const showPasswordCheckbox = document.getElementById("show-password");
   showPasswordCheckbox.addEventListener("change", function() {
