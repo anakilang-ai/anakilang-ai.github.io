@@ -9,10 +9,10 @@ import { initializeMenuButton, setupNavbar } from '/js/src/custom.js';
 //     window.location.href = "https://anakilang-ai.github.io/login.html";
 // }
 
-custom_menuBtn();
-navbarSupportedContent();
+initializeMenuButton();
+setupNavbar();
 
-onClick('popup-closer',onClosePopupClick);
-onClick('insertmarkerbutton',onSubmitMarkerClick);
-onClick('hapusbutton',onDeleteMarkerClick);
-onClick('hitungcogbutton',getAllCoordinates);
+addClickListener('popup-closer', handleClosePopupClick);
+addClickListener('insertmarkerbutton', handleMarkerSubmit);
+addClickListener('hapusbutton', handleMarkerDelete);
+addClickListener('hitungcogbutton', fetchAllCoordinates);
