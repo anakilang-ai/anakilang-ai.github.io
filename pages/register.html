@@ -13,33 +13,33 @@
         <link rel="stylesheet" href="../css/register.css">
         <link rel="icon" type="image/png" href="../assets/images/favicon.ico">
     </head>
-<body>
-    <div class="container">
-        <form id="register-form" class="form">
-            <h3 class="text-center text-info">Register</h3>
-            <div class="form-group">
+    <body>
+        <div class="container">
+            <form id="registration-form" class="form">
+                <h3 class="text-center text-info">Sign Up</h3>
                 <div class="form-group">
-                    <label for="namalengkap" class="text-info">Nama Lengkap:</label>
-                    <input type="text" name="namalengkap" id="namalengkap" class="form-control" required>
+                    <label for="fullname" class="text-info">Full Name:</label>
+                    <input type="text" name="fullname" id="fullname" class="form-control" required>
                 </div>
-                <label for="email" class="text-info">Email:</label>
-                <input type="text" name="email" id="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password" class="text-info">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
-            </div>
-            <div class="form-group">
-                <label for="confirmpassword" class="text-info">Confirm Password</label>
-                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
-                    <label class="custom-control-label text-info" for="remember-me">Remember me</label>
+                <div class="form-group">
+                    <label for="useremail" class="text-info">Email Address:</label>
+                    <input type="text" name="useremail" id="useremail" class="form-control" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="userpassword" class="text-info">Password:</label>
+                    <input type="password" name="userpassword" id="userpassword" class="form-control" required>
+                    <input type="checkbox" id="toggle-password" class="mt-2"> <label for="toggle-password" class="text-info">Show Password</label>
+                </div>
+                <div class="form-group">
+                    <label for="confirmpass" class="text-info">Confirm Password:</label>
+                    <input type="password" name="confirmpass" id="confirmpass" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="remember" name="remember">
+                        <label class="custom-control-label text-info" for="remember">Remember me</label>
+                    </div>
+                </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-md">
             </div>
