@@ -1,54 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>REGISTER | ANAK ILANG</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/register.css">
-        <link rel="icon" type="image/png" href="../assets/images/favicon.ico">
-    </head>
-    <body>
-        <div class="container">
-            <form id="registration-form" class="form">
-                <h3 class="text-center text-info">Sign Up</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAK ILANG | REGISTER</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.ico" />
+</head>
+<body>
+    <div class="container">
+        <form id="register-form" class="form">
+            <h3 class="text-center text-info">Register</h3>
+            <div class="form-group">
                 <div class="form-group">
-                    <label for="fullname" class="text-info">Full Name:</label>
-                    <input type="text" name="fullname" id="fullname" class="form-control" required>
+                    <label for="namalengkap" class="text-info">Nama Lengkap:</label>
+                    <input type="text" name="namalengkap" id="namalengkap" class="form-control" required>
                 </div>
-                <div class="form-group">
-                    <label for="useremail" class="text-info">Email Address:</label>
-                    <input type="text" name="useremail" id="useremail" class="form-control" required>
+                <label for="email" class="text-info">Email:</label>
+                <input type="text" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="text-info">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword" class="text-info">Confirm Password</label>
+                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
+                    <label class="custom-control-label text-info" for="remember-me">Remember me</label>
                 </div>
-                <div class="form-group">
-                    <label for="userpassword" class="text-info">Password:</label>
-                    <input type="password" name="userpassword" id="userpassword" class="form-control" required>
-                    <input type="checkbox" id="toggle-password" class="mt-2"> <label for="toggle-password" class="text-info">Show Password</label>
-                </div>
-                <div class="form-group">
-                    <label for="confirmpass" class="text-info">Confirm Password:</label>
-                    <input type="password" name="confirmpass" id="confirmpass" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="remember" name="remember">
-                        <label class="custom-control-label text-info" for="remember">Remember me</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-md btn-primary" value="Register">
-                </div>
-                <div id="login-link" class="text-right">
-                    <a href="login.html" class="text-info">Already have an account? Log in</a>
-                </div>
-            </form>
-            <div id="response"></div>
-        </div>
-        <script type="module" src="../js/register.js"></script>
-    </body>
-    </html>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-md">
+            </div>
+            <div id="register-link" class="text-right">
+                <a href="login.html" class="text-info">Login here</a>
+            </div>
+        </form>
+        <div id="response-message"></div>
+    </div>
+    <script type="module" src="../js/register.js"></script>
+</body>
+</html>
