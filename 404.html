@@ -15,7 +15,7 @@
     </div>
     <script>
         if (document.referrer) {
-            console.log(Referrer: ${document.referrer});
+            console.log(`Referrer: ${document.referrer}`);
             // Check if referrer page is valid, if not redirect to 404 page
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
