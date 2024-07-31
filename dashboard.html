@@ -902,11 +902,13 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Langganan untuk mendapatkan info terbaru dari kami!</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form action="" method="post" role="form" class="php-email-form" id="newsletter-form">
+              <input type="email" name="email" id="newsletter-email" placeholder="Your Email" required>
+              <input type="submit" value="Subscribe" onclick="if (document.getElementById('newsletter-email').checkValidity()) { document.getElementById('newsletter-success').style.display = 'block'; document.getElementById('newsletter-form').reset(); return false; }">
             </form>
-
+            <div id="newsletter-success" style="display:none; margin-top:10px;">You have successfully subscribed to our newsletter!</div>
           </div>
+          
 
         </div>
       </div>
