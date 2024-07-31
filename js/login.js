@@ -1,16 +1,16 @@
-import { handleLogin } from '../js/src/controller.js';
+import { authenticateUser } from '../js/src/controller.js';
 
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("login-form");
-  form.addEventListener("submit", function(event) {
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login-form");
+  loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    handleLogin();
+    authenticateUser();
   });
 
-  // Menampilkan atau menyembunyikan password
-  const showPasswordCheckbox = document.getElementById("show-password");
-  showPasswordCheckbox.addEventListener("change", function() {
-    const passwordField = document.getElementById("password");
-    passwordField.type = this.checked ? "text" : "password";
+  // Toggle password visibility
+  const passwordVisibilityToggle = document.getElementById("show-password");
+  passwordVisibilityToggle.addEventListener("change", () => {
+    const passwordInput = document.getElementById("password");
+    passwordInput.type = passwordVisibilityToggle.checked ? "text" : "password";
   });
 });
