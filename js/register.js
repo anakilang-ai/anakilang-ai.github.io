@@ -1,16 +1,16 @@
-import { registerUser } from '../js/src/controller.js';
+import { handleRegister } from '../js/src/controller.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const registrationForm = document.getElementById("register-form");
-  registrationForm.addEventListener("submit", (event) => {
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("register-form");
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
-    registerUser();
+    handleRegister();
   });
 
-  // Toggle password visibility
-  const togglePasswordCheckbox = document.getElementById("show-password");
-  togglePasswordCheckbox.addEventListener("change", () => {
-    const passwordInput = document.getElementById("password");
-    passwordInput.type = togglePasswordCheckbox.checked ? "text" : "password";
+  // Menampilkan atau menyembunyikan password
+  const showPasswordCheckbox = document.getElementById("show-password");
+  showPasswordCheckbox.addEventListener("change", function() {
+    const passwordField = document.getElementById("password");
+    passwordField.type = this.checked ? "text" : "password";
   });
 });
