@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
+    <title>Page Not Found</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/404.css">
 </head>
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Sorry, the page you are looking for cannot be found.</p>
-        <a href="/" class="home-link">Go to Homepage</a>
+    <div class="error-container">
+        <h1>404 Error</h1>
+        <p>Oops! The page you’re looking for does not exist.</p>
+        <a href="/" class="return-home">Return to Homepage</a>
     </div>
     <script>
         if (document.referrer) {
-            console.log(Referrer: ${document.referrer});
-            // Check if referrer page is valid, if not redirect to 404 page
+            console.log(`Referrer: ${document.referrer}`);
+            // Check if referrer page is valid, if not redirect to a fallback page
             fetch(document.referrer, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
-                        // If referrer page is not valid, redirect to 404 page
-                        window.location.href = '/404.html';
+                        // If referrer page is invalid, redirect to fallback page
+                        window.location.href = '/fallback.html';
                     }
                 })
                 .catch(() => {
-                    // If there's an error fetching the referrer page, redirect to 404 page
-                    window.location.href = '/404.html';
+                    // If there's an error fetching the referrer page, redirect to fallback page
+                    window.location.href = '/fallback.html';
                 });
         } else {
-            // If there's no referrer, redirect to homepage or 404 page based on your needs
-            console.log('No referrer detected');
+            // If there's no referrer, redirect to homepage or fallback page based on your needs
+            console.log('No referrer information available');
         }
     </script>
 </body>
