@@ -1,30 +1,29 @@
-// chat.js
-import { toggleTheme, sendMessage, simulateBotResponse, sendFallbackMessage, scrollToBottom, handleLogout } from '../js/src/controller.js';
+import { toggleTheme, sendMessage, simulateBotReply, sendFallbackReply, scrollToBottom, handleLogout } from '../js/src/controller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const chatWindow = document.getElementById('chat-window');
-    const chatInput = document.getElementById('chat-input');
-    const sendButton = document.getElementById('send-button');
-    const themeToggle = document.getElementById('theme-toggle');
-    const logoutButton = document.getElementById('logout-btn');
-    let isDarkMode = false;
+    const chatBox = document.getElementById('message-area');
+    const messageInput = document.getElementById('message-input');
+    const sendMsgButton = document.getElementById('send-msg-btn');
+    const themeSwitch = document.getElementById('theme-toggle-btn');
+    const logoutBtn = document.getElementById('logout-button');
+    let darkMode = false;
 
-    // Event listeners
-    themeToggle.addEventListener('click', () => {
-        isDarkMode = toggleTheme(themeToggle, isDarkMode);
+    // Event handlers
+    themeSwitch.addEventListener('click', () => {
+        darkMode = toggleTheme(themeSwitch, darkMode);
     });
 
-    sendButton.addEventListener('click', () => {
-        sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+    sendMsgButton.addEventListener('click', () => {
+        sendMessage(messageInput, chatBox, scrollToBottom, simulateBotReply);
     });
 
-    chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+    messageInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            sendMessage(messageInput, chatBox, scrollToBottom, simulateBotReply);
         }
     });
 
-    logoutButton.addEventListener('click', () => {
+    logoutBtn.addEventListener('click', () => {
         handleLogout();
     });
 });
