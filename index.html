@@ -75,21 +75,25 @@
           </header>
           <!-- end header section -->
           
-    <!-- slider section -->
-    <section class="slider_section">
-      <div class="carousel_btn-container">
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
+    <!-- carousel section -->
+<section class="carousel_section">
+  <div class="carousel_nav">
+    <a class="carousel-prev" href="#carouselContainer" role="button" data-slide="prev">
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-next" href="#carouselContainer" role="button" data-slide="next">
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  <div id="carouselContainer" class="carousel slide" data-ride="carousel">
+    <ol class="carousel_nav-indicators">
+      <li data-target="#carouselContainer" data-slide-to="0" class="active">01</li>
+      <li data-target="#carouselContainer" data-slide-to="1">02</li>
+      <li data-target="#carouselContainer" data-slide-to="2">03</li>
+    </ol>
+    <!-- Add your carousel items here -->
+  </div>
+</section>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
