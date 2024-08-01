@@ -13,7 +13,6 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
         }
         #chat {
             width: 80%;
@@ -23,46 +22,31 @@
             overflow-y: auto;
             margin-bottom: 20px;
             padding: 10px;
-            background-color: #ffffff;
-            border-radius: 8px;
+            background-color: #f9f9f9;
         }
         #messageForm {
             width: 80%;
             max-width: 600px;
             display: flex;
-            margin-top: 10px;
         }
         #messageInput {
             flex: 1;
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            outline: none;
-        }
-        #messageInput:focus {
-            border-color: #4CAF50;
         }
         #sendButton {
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #4CAF50;
             color: white;
-            border-radius: 4px;
             cursor: pointer;
-            margin-left: 10px;
-        }
-        #sendButton:hover {
-            background-color: #45a049;
-        }
-        #sendButton:focus {
-            outline: none;
         }
     </style>
 </head>
 <body>
-    <div id="chat" aria-live="polite"></div>
+    <div id="chat"></div>
     <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="Masukkan pesan..." aria-label="Message input">
+        <input type="text" id="messageInput" placeholder="Masukkan pesan...">
         <button type="submit" id="sendButton">Kirim</button>
     </form>
 
@@ -71,37 +55,21 @@
         const messageForm = document.getElementById('messageForm');
         const messageInput = document.getElementById('messageInput');
 
-        // WebSocket connection
         const ws = new WebSocket('ws://localhost:8081');
-
-        ws.onopen = function() {
-            console.log('WebSocket connection opened');
-        };
 
         ws.onmessage = function(event) {
             const message = document.createElement('div');
             message.textContent = 'Pesan dari server: ' + event.data;
             chat.appendChild(message);
-            chat.scrollTop = chat.scrollHeight; // Auto-scroll to the bottom
-        };
-
-        ws.onerror = function(error) {
-            console.error('WebSocket error:', error);
-        };
-
-        ws.onclose = function() {
-            console.log('WebSocket connection closed');
         };
 
         messageForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            const message = messageInput.value.trim();
-            if (message) {
-                ws.send(message);
-                messageInput.value = '';
-                if (message === 'KELUAR') {
-                    ws.close();
-                }
+            const message = messageInput.value;
+            ws.send(message);
+            messageInput.value = '';
+            if (message.trim() === 'KELUAR') {
+                ws.close();
             }
         });
     </script>
