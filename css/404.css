@@ -6,24 +6,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(120deg, #84fab0, #8fd3f4);
+    background: linear-gradient(135deg, #8fd3f4, #84fab0);
     background-size: 200% 200%;
-    animation: gradientAnimation 10s ease infinite;
-    color: #333;
+    animation: bgAnimation 10s ease infinite;
+    color: #444;
     overflow: hidden;
 }
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    animation: appear 1s ease-in-out;
     position: relative;
     z-index: 1;
-    max-width: 90%;
-    margin: 20px;
+    max-width: 85%;
+    margin: 15px;
 }
 
 h1 {
