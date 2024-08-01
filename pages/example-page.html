@@ -10,21 +10,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
-        header, footer {
+        header {
             background-color: #4CAF50;
             width: 100%;
             padding: 10px 0;
             text-align: center;
             color: white;
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         #chat {
             width: 80%;
@@ -35,13 +33,11 @@
             margin-bottom: 20px;
             padding: 10px;
             background-color: #fff;
-            flex-grow: 1;
         }
         #messageForm {
             width: 80%;
             max-width: 600px;
             display: flex;
-            margin-bottom: 60px; /* Additional space for the footer */
         }
         #messageInput {
             flex: 1;
@@ -66,9 +62,6 @@
         <input type="text" id="messageInput" placeholder="Masukkan pesan...">
         <button type="submit" id="sendButton">Kirim</button>
     </form>
-    <footer>
-        &copy; 2024 Aplikasi Chat oleh [Nama Anda]
-    </footer>
 
     <script>
         const chat = document.getElementById('chat');
