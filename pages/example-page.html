@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>Chat Application</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #e9ecef;
         }
         #chat {
             width: 80%;
@@ -22,7 +23,7 @@
             overflow-y: auto;
             margin-bottom: 20px;
             padding: 10px;
-            background-color: #f9f9f9;
+            background: #fefefe;
         }
         #messageForm {
             width: 80%;
@@ -37,7 +38,7 @@
         #sendButton {
             padding: 10px;
             border: 1px solid #ccc;
-            background-color: #4CAF50;
+            background-color: #007bff;
             color: white;
             cursor: pointer;
         }
@@ -46,8 +47,8 @@
 <body>
     <div id="chat"></div>
     <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="Masukkan pesan...">
-        <button type="submit" id="sendButton">Kirim</button>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button type="submit" id="sendButton">Send</button>
     </form>
 
     <script>
@@ -59,7 +60,7 @@
 
         ws.onmessage = function(event) {
             const message = document.createElement('div');
-            message.textContent = 'Pesan dari server: ' + event.data;
+            message.textContent = 'Server says: ' + event.data;
             chat.appendChild(message);
         };
 
@@ -68,7 +69,7 @@
             const message = messageInput.value;
             ws.send(message);
             messageInput.value = '';
-            if (message.trim() === 'KELUAR') {
+            if (message.trim() === 'EXIT') {
                 ws.close();
             }
         });
