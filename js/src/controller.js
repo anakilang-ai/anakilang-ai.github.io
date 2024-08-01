@@ -95,29 +95,24 @@ export const sendMessage = (chatInput, chatWindow, scrollToBottom, simulateBotRe
 
 // Simulate bot response or handle errors
 export const simulateBotResponse = (message, chatWindow, scrollToBottom) => {
-    // Check if service is unavailable (simulated condition, replace with actual logic)
-    const isServiceUnavailable = false; // Simulated condition, replace with actual logic if needed
+  const isServiceDown = false;
 
-    if (isServiceUnavailable) {
-        // Send fallback message
-        sendFallbackMessage(chatWindow, scrollToBottom);
-    } else {
-        // Send message to server
-        fetch(URLChat, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                prompt: message
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Service Unavailable');
-            }
-            return response.json();
-        })
+  if (isServiceDown) {
+    sendFallbackMessage(chatWindow, scrollToBottom);
+  } else {
+    fetch(URLChat, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prompt: message })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Service Unavailable');
+      }
+      return response.json();
+    })
         .then(data => {
             // Handle successful response
             const botBubble = document.createElement('div');
