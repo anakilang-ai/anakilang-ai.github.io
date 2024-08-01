@@ -2,7 +2,7 @@
 
 @media (max-width: 992px) {
   .hero_area {
-    height: auto;
+    height: unset;
   }
 
   #navbarSupportedContent {
@@ -11,11 +11,9 @@
     margin-top: 15px;
   }
 
-
   .navbar-toggler {
     padding: 0.25rem 0;
   }
-
 
   .header_section .user_option {
     display: none;
@@ -35,7 +33,7 @@
 
   .custom_nav-container {
     padding: 15px 0;
-    height: auto;
+    height: unset;
   }
 
   .slider_section {
@@ -46,7 +44,6 @@
   .info_section .info_contact .link-box .img-box {
     margin-right: 8px;
   }
-
 }
 
 @media (max-width: 767px) {
@@ -69,21 +66,17 @@
     justify-content: center;
   }
 
-
   .img-container {
     padding: 0;
   }
 
   .slider_section .img-container .img-box {
-
     padding: 45px 0;
     background-color: #1cbbb4;
   }
 
   .experience_section .img-box {
-
     margin-bottom: 45px;
-
   }
 
   .category_section .category_container .box {
@@ -101,9 +94,7 @@
   }
 
   .info_section .info_top {
-
     flex-direction: column;
-
   }
 
   .info_section .info_top .social_box {
@@ -111,21 +102,16 @@
   }
 
   .info_section .row>div {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-bottom: 25px;
-
   }
 
   .info_section .info_contact .link-box {
     margin: 0;
   }
-
-
-
 }
 
 @media (max-width: 576px) {
@@ -147,7 +133,6 @@
   }
 
   .slider_section .carousel_btn-container {
-
     width: 100px;
   }
 
@@ -164,11 +149,8 @@
 
   .client_section .carousel-control-prev,
   .client_section .carousel-control-next {
-
     top: 95%;
-
   }
-
 
   .client_section .carousel-control-prev,
   .client_section .carousel-control-next {
