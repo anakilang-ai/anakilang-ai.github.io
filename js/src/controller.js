@@ -1,27 +1,28 @@
 import { UrlLogin, URLChat, UrlRegister } from './config.js';
 
-export async function handleLogin() {
+export async function performLogin() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  
-  const data = { email, password };
-  
+
+  const credentials = { email, password };
+
   try {
     const response = await fetch(UrlLogin, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(credentials)
     });
-    
-    const result = await response.json();
-    processLoginResponse(result);
+
+    const data = await response.json();
+    handleLoginResponse(data);
   } catch (error) {
     console.error('Error:', error);
-    alert('Login gagal. Silakan coba lagi.');
+    alert('Login failed. Please try again.');
   }
 }
+
 
 function processLoginResponse(result) {
     if (result.status === "success") {
