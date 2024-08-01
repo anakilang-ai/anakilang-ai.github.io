@@ -15,16 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sendButton.addEventListener('click', () => {
-        sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+        try {
+            sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+        } catch (error) {
+            console.error('Error sending message:', error);
+            sendFallbackMessage(chatWindow); // Handle errors gracefully
+        }
     });
 
     chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevent new lines
+            try {
+                sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+            } catch (error) {
+                console.error('Error sending message:', error);
+                sendFallbackMessage(chatWindow); // Handle errors gracefully
+            }
         }
     });
 
     logoutButton.addEventListener('click', () => {
-        handleLogout();
+        try {
+            handleLogout();
+        } catch (error) {
+            console.error('Error handling logout:', error);
+            // Optionally handle errors related to logout
+        }
     });
 });
