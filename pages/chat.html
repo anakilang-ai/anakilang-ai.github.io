@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANAK ILANG | CHAT</title>
+    <title>ANAK ILANG | AI CHAT</title>
     <link rel="stylesheet" href="../css/chat.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 <body class="light">
     <div class="chat-container">
         <header>
-            <h1>Chatbot Anak Ilanggg</h1>
-            <button id="theme-toggle">🌙</button>
+            <h1>Chatbot Anak Ilang</h1>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
         </header>
-        <div class="chat-window" id="chat-window"></div>
+        <div class="chat-window" id="chat-window" role="log" aria-live="polite"></div>
         <div class="input-container">
-            <input type="text" id="chat-input" placeholder="Type a message...">
-            <button id="send-button">Send</button>
-            <button id="logout-btn">logout</button> <!-- Tombol Logout -->
+            <input type="text" id="chat-input" placeholder="Type a message..." aria-label="Chat input">
+            <button id="send-button" aria-label="Send message">Send</button>
+            <button id="logout-btn" aria-label="Logout">Logout</button>
         </div>
     </div>
     <script type="module" src="../js/chat.js"></script>
