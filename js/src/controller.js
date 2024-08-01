@@ -113,20 +113,18 @@ export const simulateBotResponse = (message, chatWindow, scrollToBottom) => {
       }
       return response.json();
     })
-        .then(data => {
-            // Handle successful response
-            const botBubble = document.createElement('div');
-            botBubble.className = 'bubble bot-bubble';
-            botBubble.textContent = data.answer; // Changed to 'answer' to match the API response
-            chatWindow.appendChild(botBubble);
-            scrollToBottom();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Send fallback message if error is 503
-            sendFallbackMessage(chatWindow, scrollToBottom);
-        });
-    }
+    .then(data => {
+      const botBubble = document.createElement('div');
+      botBubble.className = 'bubble bot-bubble';
+      botBubble.textContent = data.answer;
+      chatWindow.appendChild(botBubble);
+      scrollToBottom();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      sendFallbackMessage(chatWindow, scrollToBottom);
+    });
+  }
 };
 
 // Function to send fallback message
