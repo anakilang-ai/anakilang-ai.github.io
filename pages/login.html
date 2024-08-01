@@ -2,45 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Login page for Anak Ilang">
-    <meta name="keywords" content="login, authentication, Anak Ilang">
-
     <title>ANAK ILANG | LOGIN</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/login.css">
-    <link rel="icon" type="image/png" href="../assets/ico/favicon.ico" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 400px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .btn {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        #response-message {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="assets/ico/favicon.ico" />
 </head>
 <body>
     <div class="container">
@@ -48,13 +22,12 @@
             <h3 class="text-center text-info">Login</h3>
             <div class="form-group">
                 <label for="email" class="text-info">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" required aria-required="true" aria-label="Email">
+                <input type="text" name="email" id="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required aria-required="true" aria-label="Password">
-                <input type="checkbox" id="show-password" class="mt-2" aria-label="Show password"> 
-                <label for="show-password" class="text-info">Show Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
@@ -63,28 +36,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-md btn-primary">Login</button>
+                <input type="submit" class="btn btn-md">
             </div>
             <div id="register-link" class="text-right">
                 <a href="register.html" class="text-info">Register here</a>
             </div>
         </form>
-        <div id="response-message" aria-live="polite"></div>
+        <div id="response-message"></div>
     </div>
     <script type="module" src="../js/login.js"></script>
-    <script>
-        // Show password functionality
-        document.getElementById('show-password').addEventListener('change', function() {
-            const passwordField = document.getElementById('password');
-            passwordField.type = this.checked ? 'text' : 'password';
-        });
-
-        // Example response message handling
-        function displayResponseMessage(message, isSuccess) {
-            const responseElement = document.getElementById('response-message');
-            responseElement.textContent = message;
-            responseElement.style.color = isSuccess ? 'green' : 'red';
-        }
-    </script>
 </body>
 </html>
