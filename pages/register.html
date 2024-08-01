@@ -5,32 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANAK ILANG | REGISTER</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/register.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.ico" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        #response-message {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <form id="register-form" class="form">
             <h3 class="text-center text-info">Register</h3>
             <div class="form-group">
-                <div class="form-group">
-                    <label for="namalengkap" class="text-info">Nama Lengkap:</label>
-                    <input type="text" name="namalengkap" id="namalengkap" class="form-control" required>
-                </div>
+                <label for="namalengkap" class="text-info">Nama Lengkap:</label>
+                <input type="text" name="namalengkap" id="namalengkap" class="form-control" required aria-required="true" aria-label="Nama Lengkap">
+            </div>
+            <div class="form-group">
                 <label for="email" class="text-info">Email:</label>
-                <input type="text" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" class="form-control" required aria-required="true" aria-label="Email">
             </div>
             <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="password" name="password" id="password" class="form-control" required aria-required="true" aria-label="Password">
                 <input type="checkbox" id="show-password" class="mt-2"> <label for="show-password" class="text-info">Show Password</label>
             </div>
             <div class="form-group">
-                <label for="confirmpassword" class="text-info">Confirm Password</label>
-                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required>
+                <label for="confirmpassword" class="text-info">Confirm Password:</label>
+                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required aria-required="true" aria-label="Confirm Password">
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
@@ -39,14 +66,41 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-md">
+                <button type="submit" class="btn btn-md btn-primary">Register</button>
             </div>
             <div id="register-link" class="text-right">
                 <a href="login.html" class="text-info">Login here</a>
             </div>
         </form>
-        <div id="response-message"></div>
+        <div id="response-message" aria-live="polite"></div>
     </div>
     <script type="module" src="../js/register.js"></script>
+    <script>
+        // Show password functionality
+        document.getElementById('show-password').addEventListener('change', function() {
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirmpassword');
+            const type = this.checked ? 'text' : 'password';
+            passwordField.type = type;
+            confirmPasswordField.type = type;
+        });
+
+        // Form validation for matching passwords
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmpassword').value;
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                displayResponseMessage("Passwords do not match.", false);
+            }
+        });
+
+        // Example response message handling
+        function displayResponseMessage(message, isSuccess) {
+            const responseElement = document.getElementById('response-message');
+            responseElement.textContent = message;
+            responseElement.style.color = isSuccess ? 'green' : 'red';
+        }
+    </script>
 </body>
 </html>
