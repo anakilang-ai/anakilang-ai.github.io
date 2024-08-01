@@ -77,25 +77,20 @@ export const toggleTheme = (themeToggle, isDarkMode) => {
   return isDarkMode;
 };
 
-// Send message function
 export const sendMessage = (chatInput, chatWindow, scrollToBottom, simulateBotResponse) => {
-    const message = chatInput.value.trim();
-    if (message) {
-        // Create user message bubble
-        const userBubble = document.createElement('div');
-        userBubble.className = 'bubble user-bubble';
-        userBubble.textContent = message;
-        chatWindow.appendChild(userBubble);
+  const message = chatInput.value.trim();
+  if (message) {
+    const userBubble = document.createElement('div');
+    userBubble.className = 'bubble user-bubble';
+    userBubble.textContent = message;
+    chatWindow.appendChild(userBubble);
 
-        // Clear input field
-        chatInput.value = '';
+    chatInput.value = '';
 
-        // Scroll to bottom
-        scrollToBottom();
+    scrollToBottom();
 
-        // Simulate bot response or handle errors
-        simulateBotResponse(message, chatWindow, scrollToBottom);
-    }
+    simulateBotResponse(message, chatWindow, scrollToBottom);
+  }
 };
 
 // Simulate bot response or handle errors
