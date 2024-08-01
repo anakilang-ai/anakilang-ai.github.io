@@ -60,26 +60,21 @@ export async function performRegister() {
   }
 }
 
-function processRegisterResponse(result) {
-    if (result.message === "berhasil mendaftar") {
-      alert("Register berhasil");
-      document.getElementById("response-message").innerText = result.message;
-    //   // Simpan token dalam cookie
-    //   document.cookie = `token=${result.token}; path=/;`;
-      // Redirect ke halaman dashboard atau halaman lainnya
-      window.location.href = "login.html";
-    } else {
-      alert("Register gagal. Silakan coba lagi.");
-    }
+function handleRegisterResponse(data) {
+  if (data.message === "berhasil mendaftar") {
+    alert("Registration successful");
+    document.getElementById("response-message").innerText = data.message;
+    window.location.href = "login.html";
+  } else {
+    alert("Registration failed. Please try again.");
   }
-  
+}
 
-// Toggle theme between light and dark
 export const toggleTheme = (themeToggle, isDarkMode) => {
-    document.body.classList.toggle('dark');
-    isDarkMode = !isDarkMode;
-    themeToggle.textContent = isDarkMode ? '🌞' : '🌙';
-    return isDarkMode;
+  document.body.classList.toggle('dark');
+  isDarkMode = !isDarkMode;
+  themeToggle.textContent = isDarkMode ? '🌞' : '🌙';
+  return isDarkMode;
 };
 
 // Send message function
