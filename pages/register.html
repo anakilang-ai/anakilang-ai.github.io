@@ -26,15 +26,29 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .btn {
-            background-color: #007bff;
-            color: #fff;
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
         }
-        .btn:hover {
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
             background-color: #0056b3;
+            border-color: #004085;
+        }
+        .custom-control-label {
+            margin-left: 5px;
         }
         #response-message {
             margin-top: 20px;
+            font-weight: bold;
+        }
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -66,7 +80,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-md btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary btn-md">Register</button>
             </div>
             <div id="register-link" class="text-right">
                 <a href="login.html" class="text-info">Login here</a>
@@ -92,8 +106,16 @@
             if (password !== confirmPassword) {
                 event.preventDefault();
                 displayResponseMessage("Passwords do not match.", false);
+            } else if (!validatePassword(password)) {
+                event.preventDefault();
+                displayResponseMessage("Password must be at least 8 characters long and contain a mix of letters and numbers.", false);
             }
         });
+
+        // Password strength validation function
+        function validatePassword(password) {
+            return /^(?=.*[a-zA-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+        }
 
         // Example response message handling
         function displayResponseMessage(message, isSuccess) {
