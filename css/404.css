@@ -56,7 +56,7 @@ p {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeIn {
+@keyframes appear {
     from {
         opacity: 0;
     }
@@ -67,21 +67,7 @@ p {
 
 @media (max-width: 1200px) {
     h1 {
-        font-size: 3.5em;
-    }
-
-    p {
-        font-size: 1.3em;
-    }
-
-    .home-link {
-        padding: 8px 16px;
-    }
-}
-
-@media (max-width: 900px) {
-    h1 {
-        font-size: 3em;
+        font-size: 3.3em;
     }
 
     p {
@@ -89,32 +75,46 @@ p {
     }
 
     .home-link {
-        padding: 8px 16px;
-        font-size: 1em;
+        padding: 7px 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.8em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .home-link {
+        padding: 7px 14px;
+        font-size: 0.95em;
     }
 }
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
 
     p {
-        font-size: 1em;
+        font-size: 0.95em;
     }
 
     .home-link {
-        padding: 6px 12px;
-        font-size: 0.9em;
+        padding: 5px 10px;
+        font-size: 0.85em;
     }
 
     .container {
-        padding: 20px;
+        padding: 18px;
     }
 }
 
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes bgAnimation {
+    0% { background-position: 50% 0%; }
+    50% { background-position: 50% 100%; }
+    100% { background-position: 50% 0%; }
 }
