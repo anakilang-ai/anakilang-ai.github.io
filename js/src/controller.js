@@ -35,30 +35,30 @@ function handleLoginResponse(data) {
   }
 }
 
-export async function handleRegister() {
-    const namalengkap = document.getElementById("namalengkap").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmpass = document.getElementById("confirmpassword").value;
-    
-    const data = { namalengkap, email, password, confirmpass };
-    
-    try {
-      const response = await fetch(UrlRegister, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      
-      const result = await response.json();
-      processRegisterResponse(result);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Register gagal. Silakan coba lagi.');
-    }
+export async function performRegister() {
+  const fullName = document.getElementById("namalengkap").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmpassword").value;
+
+  const registrationData = { namalengkap: fullName, email, password, confirmpass: confirmPassword };
+
+  try {
+    const response = await fetch(UrlRegister, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(registrationData)
+    });
+
+    const data = await response.json();
+    handleRegisterResponse(data);
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Registration failed. Please try again.');
   }
+}
 
 function processRegisterResponse(result) {
     if (result.message === "berhasil mendaftar") {
