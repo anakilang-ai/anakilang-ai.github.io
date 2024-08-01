@@ -24,18 +24,16 @@ export async function performLogin() {
 }
 
 
-function processLoginResponse(result) {
-    if (result.status === "success") {
-      alert("Login berhasil");
-      document.getElementById("response-message").innerText = result.message;
-      // Simpan token dalam cookie
-      document.cookie = `token=${result.token}; path=/;`;
-      // Redirect ke halaman dashboard atau halaman lainnya
-      window.location.href = "chat.html";
-    } else {
-      alert("Login gagal. Silakan coba lagi.");
-    }
+function handleLoginResponse(data) {
+  if (data.status === "success") {
+    alert("Login successful");
+    document.getElementById("response-message").innerText = data.message;
+    document.cookie = `token=${data.token}; path=/;`;
+    window.location.href = "chat.html";
+  } else {
+    alert("Login failed. Please try again.");
   }
+}
 
 export async function handleRegister() {
     const namalengkap = document.getElementById("namalengkap").value;
