@@ -127,29 +127,26 @@ export const simulateBotResponse = (message, chatWindow, scrollToBottom) => {
   }
 };
 
-// Function to send fallback message
 export const sendFallbackMessage = (chatWindow, scrollToBottom) => {
-    const botBubble = document.createElement('div');
-    botBubble.className = 'bubble bot-bubble';
-    const fallbackMessage = "Beli baju di Pasar Baru,<br>Pilih warna biru yang cerah.<br>Modelnya sedang dimuat ya kakak,<br>Jadi mohon bersabar.";
-    botBubble.innerHTML = fallbackMessage; // Use innerHTML to render HTML tags like <br>
-    chatWindow.appendChild(botBubble);
-    scrollToBottom();
+  const botBubble = document.createElement('div');
+  botBubble.className = 'bubble bot-bubble';
+  const fallbackMessage = "Beli baju di Pasar Baru,<br>Pilih warna biru yang cerah.<br>Modelnya sedang dimuat ya kakak,<br>Jadi mohon bersabar.";
+  botBubble.innerHTML = fallbackMessage;
+  chatWindow.appendChild(botBubble);
+  scrollToBottom();
 };
 
-// Function to scroll chat window to bottom
 export const scrollToBottom = () => {
-    const chatWindow = document.getElementById('chat-window');
-    chatWindow.scrollTop = chatWindow.scrollHeight;
+  const chatWindow = document.getElementById('chat-window');
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 };
 
-// Function to delete a cookie
 export const deleteCookie = (name) => {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 };
 
 export const handleLogout = () => {
-    deleteCookie('token');
-    alert('You have successfully logged out.');
-    window.location.href = '/';
+  deleteCookie('token');
+  alert('You have successfully logged out.');
+  window.location.href = '/';
 };
