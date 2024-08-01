@@ -13,6 +13,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f4f4f4;
         }
         #chat {
             width: 80%;
@@ -22,31 +23,48 @@
             overflow-y: auto;
             margin-bottom: 20px;
             padding: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         #messageForm {
             width: 80%;
             max-width: 600px;
             display: flex;
+            align-items: center;
         }
         #messageInput {
             flex: 1;
             padding: 10px;
             border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            outline: none;
+        }
+        #messageInput:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 3px rgba(0, 128, 0, 0.3);
         }
         #sendButton {
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
             background-color: #4CAF50;
             color: white;
             cursor: pointer;
+            font-size: 16px;
+        }
+        #sendButton:hover {
+            background-color: #45a049;
+        }
+        #sendButton:active {
+            background-color: #388e3c;
         }
     </style>
 </head>
 <body>
-    <div id="chat"></div>
-    <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="Masukkan pesan...">
+    <div id="chat" role="log" aria-live="polite"></div>
+    <form id="messageForm" aria-label="Chat form">
+        <input type="text" id="messageInput" placeholder="Masukkan pesan..." aria-label="Message input">
         <button type="submit" id="sendButton">Kirim</button>
     </form>
 
@@ -55,21 +73,45 @@
         const messageForm = document.getElementById('messageForm');
         const messageInput = document.getElementById('messageInput');
 
-        const ws = new WebSocket('ws://localhost:8081');
+        let ws;
 
-        ws.onmessage = function(event) {
-            const message = document.createElement('div');
-            message.textContent = 'Pesan dari server: ' + event.data;
-            chat.appendChild(message);
-        };
+        function connect() {
+            ws = new WebSocket('ws://localhost:8081');
+
+            ws.onopen = function() {
+                console.log('WebSocket connection established.');
+                chat.innerHTML += '<div><em>Connected to the server.</em></div>';
+            };
+
+            ws.onmessage = function(event) {
+                const message = document.createElement('div');
+                message.textContent = 'Pesan dari server: ' + event.data;
+                chat.appendChild(message);
+                chat.scrollTop = chat.scrollHeight; // Scroll to the bottom
+            };
+
+            ws.onerror = function(error) {
+                console.error('WebSocket error:', error);
+                chat.innerHTML += '<div><em>Error connecting to server.</em></div>';
+            };
+
+            ws.onclose = function() {
+                console.log('WebSocket connection closed.');
+                chat.innerHTML += '<div><em>Disconnected from the server.</em></div>';
+            };
+        }
+
+        connect();
 
         messageForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            const message = messageInput.value;
-            ws.send(message);
-            messageInput.value = '';
-            if (message.trim() === 'KELUAR') {
-                ws.close();
+            const message = messageInput.value.trim();
+            if (message) {
+                ws.send(message);
+                messageInput.value = '';
+                if (message.toUpperCase() === 'KELUAR') {
+                    ws.close();
+                }
             }
         });
     </script>
