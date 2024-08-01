@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found. The page you are looking for may have been moved or deleted.">
     <title>404 Not Found</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/404.css">
@@ -14,23 +15,9 @@
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
-        if (document.referrer) {
-            console.log(`Referrer: ${document.referrer}`);
-            // Check if referrer page is valid
-            fetch(document.referrer, { method: 'HEAD' })
-                .then(response => {
-                    if (!response.ok) {
-                        // If referrer page is not valid, redirect to 404 page
-                        window.location.href = '/404.html';
-                    }
-                })
-                .catch(() => {
-                    // If there's an error fetching the referrer page, redirect to 404 page
-                    window.location.href = '/404.html';
-                });
-        } else {
-            // If there's no referrer, redirect to homepage or 404 page based on your needs
+        if (!document.referrer) {
             console.log('No referrer detected');
+            window.location.href = '/404.html'; // Redirect if there's no referrer
         }
     </script>
 </body>
