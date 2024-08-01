@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>Aplikasi Chat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +13,16 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         #chat {
             width: 80%;
@@ -22,7 +32,7 @@
             overflow-y: auto;
             margin-bottom: 20px;
             padding: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
         #messageForm {
             width: 80%;
@@ -44,6 +54,9 @@
     </style>
 </head>
 <body>
+    <header>
+        Aplikasi Chat
+    </header>
     <div id="chat"></div>
     <form id="messageForm">
         <input type="text" id="messageInput" placeholder="Masukkan pesan...">
@@ -61,6 +74,7 @@
             const message = document.createElement('div');
             message.textContent = 'Pesan dari server: ' + event.data;
             chat.appendChild(message);
+            chat.scrollTop = chat.scrollHeight; // Scroll otomatis ke bawah
         };
 
         messageForm.addEventListener('submit', function(event) {
