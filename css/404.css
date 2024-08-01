@@ -27,33 +27,33 @@ body {
 }
 
 h1 {
-    font-size: 4em;
-    margin-bottom: 0.5em;
-    color: #007bff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 3.8em;
+    margin-bottom: 0.6em;
+    color: #0066cc;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 p {
-    font-size: 1.5em;
-    margin-bottom: 1.5em;
+    font-size: 1.4em;
+    margin-bottom: 1.4em;
 }
 
 .home-link {
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 1.2em;
     text-decoration: none;
     color: white;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 4px;
+    background-color: #0066cc;
+    padding: 9px 18px;
+    border-radius: 6px;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .home-link:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #004b99;
+    transform: scale(1.07);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeIn {
