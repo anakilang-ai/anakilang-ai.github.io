@@ -1,196 +1,48 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background);
     color: var(--text);
     transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
 }
 
-:root {
-    --background-light: #f0f2f5;
-    --background-dark: #1e1e1e;
-    --text-light: #000000;
-    --text-dark: #ffffff;
-    --bubble-light: #ffffff;
-    --bubble-dark: #2a2a2a;
-    --input-light: #ffffff;
-    --input-dark: #333333;
-}
-
-.light {
-    --background: var(--background-light);
-    --text: var(--text-light);
-    --bubble: var(--bubble-light);
-    --input: var(--input-light);
-}
-
-.dark {
-    --background: var(--background-dark);
-    --text: var(--text-dark);
-    --bubble: var(--bubble-dark);
-    --input: var(--input-dark);
-}
-
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - 80px); /* Tinggi layar dikurangi tinggi header */
-    margin: 20px auto; /* Auto fit di tengah layar dengan margin 20px */
-    border: 1px solid var(--bubble);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    background: linear-gradient(135deg, #f0f2f5 0%, #d6d6d6 100%);
-    padding: 20px;
-    padding: var(--bubble); /* Menggunakan --bubble untuk padding */
-}
-
-/* Ganti gaya header */
-header {
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bubble);
-    border-bottom: 1px solid var(--input);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-    position: sticky; /* Tetap pada posisi atas saat menggulir */
-    top: 0; /* Posisikan di bagian atas */
-    z-index: 1; /* Menetapkan z-index untuk menangani tumpukan */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 1.5em;
-    color: var(--text);
-}
-
-#theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    color: var(--text);
-    transition: color 0.3s;
-}
-
-/* Ganti gaya .chat-window */
-.chat-window {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto; /* Gunakan scroll jika konten melebihi ketinggian */
-    background-color: var(--background);
-}
-
-/* Ganti gaya .input-container */
-.input-container {
-    display: flex;
-    padding: 10px;
-    background-color: var(--bubble);
-    border-top: 1px solid var(--input);
-    position: sticky; /* Tetap pada posisi bawah saat menggulir */
-    bottom: 0; /* Posisikan di bagian bawah */
-    z-index: 1; /* Menetapkan z-index untuk menangani tumpukan */
-}
-
-#chat-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid var(--input);
-    border-radius: 4px;
-    background-color: var(--input);
-    color: var(--text);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#send-button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-#send-button:hover {
+/* Button Styles */
+#send-button:hover,
+#logout-btn:hover {
     background-color: #0056b3;
+    /* or appropriate dark shade */
     transform: scale(1.05);
 }
 
-.bubble {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--bubble);
-    max-width: 80%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Tambahkan style untuk bubble pengguna (user-bubble) di sisi kanan */
-.user-bubble {
-    align-self: flex-end;
-    background-color: #007bff;
-    color: white;
-    margin-left: auto; /* Menjadikan gelembung pengguna (user bubble) di sebelah kanan */
-    text-align: right; /* Meletakkan teks di dalam gelembung pengguna (user bubble) rata kanan */
-    max-width: fit-content; /* Menetapkan lebar maksimum gelembung */
-    word-wrap: break-word; /* Memastikan teks yang panjang tidak keluar dari gelembung */
-    padding: 10px; /* Memberi ruang di dalam gelembung */
-    border-radius: 10px; /* Mengubah sudut gelembung */
-    margin-bottom: 10px; /* Memberi ruang antara gelembung */
-    animation: fadeIn 0.3s ease-in-out; /* Animasi munculnya gelembung */
-}
-
-/* Tambahkan style untuk bubble bot (bot-bubble) di sisi kiri */
-.bot-bubble {
-    align-self: flex-start;
-    background-color: var(--bubble);
-    margin-right: auto; /* Menjadikan gelembung bot (bot bubble) di sebelah kiri */
-    text-align: left; /* Meletakkan teks di dalam gelembung bot (bot bubble) rata kiri */
-    max-width: fit-content; /* Menetapkan lebar maksimum gelembung */
-    word-wrap: break-word; /* Memastikan teks yang panjang tidak keluar dari gelembung */
-    padding: 10px; /* Memberi ruang di dalam gelembung */
-    border-radius: 10px; /* Mengubah sudut gelembung */
-    margin-bottom: 10px; /* Memberi ruang antara gelembung */
-    animation: fadeIn 0.3s ease-in-out; /* Animasi munculnya gelembung */
-}
-
 #logout-btn {
-    
-    padding: 10px 20px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
     background-color: #ff0000;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#logout-btn:hover {
+    background-color: #cc0000;
+    /* Slightly darker shade */
 }
 
+/* Mobile Responsiveness */
 @media screen and (max-width: 600px) {
     .chat-container {
         width: 100%;
         border-radius: 0;
         margin: 0;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    #send-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
     }
 }
