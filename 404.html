@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/404.css">
 </head>
+
 <body>
     <div class="container">
         <h1>404</h1>
@@ -15,10 +17,12 @@
         <a href="/" class="home-link">Go to Homepage</a>
     </div>
     <script>
+        // Check if there's no referrer and redirect to the custom 404 page
         if (!document.referrer) {
             console.log('No referrer detected');
-            window.location.href = '/404.html'; // Redirect if there's no referrer
+            window.location.href = '/404.html';
         }
     </script>
 </body>
+
 </html>
