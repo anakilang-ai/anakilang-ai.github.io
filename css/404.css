@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     margin: 0;
     padding: 0;
@@ -42,7 +43,7 @@ p {
     display: inline-block;
     margin-top: 1em;
     text-decoration: none;
-    color: white;
+    color: #fff;
     background-color: #007bff;
     padding: 10px 20px;
     border-radius: 4px;
@@ -56,15 +57,32 @@ p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
 
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive styles */
 @media (max-width: 1200px) {
     h1 {
         font-size: 3.5em;
@@ -111,10 +129,4 @@ p {
     .container {
         padding: 20px;
     }
-}
-
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
