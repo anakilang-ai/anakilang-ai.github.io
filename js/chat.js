@@ -1,4 +1,3 @@
-// chat.js
 import { toggleTheme, sendMessage, simulateBotResponse, sendFallbackMessage, scrollToBottom, handleLogout } from '../js/src/controller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,16 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sendButton.addEventListener('click', () => {
-        sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+        handleSendMessage();
     });
 
     chatInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+            handleSendMessage();
         }
     });
 
     logoutButton.addEventListener('click', () => {
         handleLogout();
     });
+
+    async function handleSendMessage() {
+        try {
+            sendButton.disabled = true; // Disable send button
+            await sendMessage(chatInput, chatWindow, scrollToBottom, simulateBotResponse);
+        } catch (error) {
+            console.error('Error sending message:', error);
+            sendFallbackMessage(chatWindow, scrollToBottom);
+        } finally {
+            sendButton.disabled = false; // Re-enable send button
+        }
+    }
 });
